@@ -1,0 +1,93 @@
+---
+site_name: {{cookiecutter.repository}}  # yamllint disable-line
+site_description: ...
+site_url: >
+  https://{{cookiecutter.repository_owner}}.github.io/{{cookiecutter.repository}}
+repo_url: >
+  https://github.com/{{cookiecutter.repository_owner}}/{{cookiecutter.repository}}
+repo_name: >
+  '{{cookiecutter.repository_owner}}/{{cookiecutter.repository}}'  # yamllint disable-line
+
+nav:
+  - Overview: README.md
+  - API Reference: reference/
+  - Contributing: CONTRIBUTING.md
+  - Code of Conduct: CODE_OF_CONDUCT.md
+  - Changelog: CHANGELOG.md
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: red
+      accent: pink
+  features:
+    - navigations.tabs
+  icon:
+    repo: fontawesome/brands/github
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+
+plugins:
+  - search
+  - autorefs
+  - gen-files:
+      scripts:
+        - docs/gen_ref_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+  - section-index
+  - mkdocstrings:
+      handlers:
+        python:
+          rendering:
+            show_submodules: false
+            show_root_heading: false
+            show_root_toc_entry: false
+            show_source: true
+            heading_level: 2
+            enable_inventory: true
+      watch:
+        - src/{{cookiecutter.repository}}
+  - minify:
+      minify_html: true
+      htmlmin_opts:
+        remove_comments: true
+
+# https://squidfunk.github.io/mkdocs-material/reference/
+markdown_extensions:
+  - admonition
+  - attr_list
+  - abbr
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - pymdownx.details
+  - pymdownx.snippets
+  - pymdownx.inlinehilite
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - toc:
+      permalink: true
