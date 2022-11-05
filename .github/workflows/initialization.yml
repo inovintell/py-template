@@ -1,0 +1,71 @@
+---
+name: Initialize Repository
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  setup:
+    if: ${{ ! contains(github.repository, 'template') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@dd2c410b088af7c0dc8046f3ac9a8f4148492a95 # tag=v1.4.5
+        with:
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
+            files.pythonhosted.org:443
+            github.com:443
+            pypi.org:443
+      - name: Checkout repository
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+        with:
+          fetch-depth: 0
+      - name: Setup labels for the repository
+        run: gh label clone inovintell/template --force
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Update repository name
+        uses: jossef/action-set-json-field@2a0f7d953b580b828717daf4de7fafc7e4135e97 # tag=v2
+        with:
+          file: cookiecutter.json
+          field: repository
+          value: ${{ github.event.repository.name }}
+      - name: Update repository owner
+        uses: jossef/action-set-json-field@2a0f7d953b580b828717daf4de7fafc7e4135e97 # tag=v2
+        with:
+          file: cookiecutter.json
+          field: repository_owner
+          value: ${{ github.repository_owner }}
+      - name: Setup Python
+        uses: actions/setup-python@13ae5bb136fac2878aff31522b9efb785519f984 # tag=v4.3.0
+        with:
+          python-version: 3.x
+      - name: Install cookiecutter
+        run: pip install cookiecutter
+      - name: Hack cookiecutter to work with GH Actions
+        id: hack
+        working-directory: ${{ github.workspace }}/../
+        run: |
+          rm ${{ github.event.repository.name }}/.github/workflows/initialization.yml
+          mv ${{ github.event.repository.name }}/cookiecutter.json ./
+          mv ${{ github.event.repository.name }} '{{cookiecutter.repository}}'
+          echo "::set-output name=working_directory::$(pwd)"
+      - name: Create repo from template
+        working-directory: ${{ steps.hack.outputs.working_directory }}/../
+        run: >
+          cookiecutter --verbose --no-input
+          ${{ github.event.repository.name }}
+          --output-dir ./${{ github.event.repository.name }}
+      - name: Push changes
+        uses: stefanzweifel/git-auto-commit-action@0b007fbd1180b8e3a3668b21c6517392fe8f26eb # tag=v4.15.4
+        with:
+          commit_user_name: github-actions[bot]
+          commit_user_email: github-actions[bot]@users.noreply.github.com
+          commit_message: 'fix: setup template repository [skip ci]'
+          add_options: --all
+          push_options: --force

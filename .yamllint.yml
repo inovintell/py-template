@@ -1,0 +1,38 @@
+---
+extends: default
+
+rules:
+  braces:
+    forbid: true
+    level: error
+  brackets:
+    forbid: true
+    level: error
+  comments:
+    require-starting-space: true
+    ignore-shebangs: true
+    min-spaces-from-content: 1
+    level: error
+  comments-indentation:
+    level: error
+  document-start:
+    present: true
+    level: error
+  empty-lines: enable
+  empty-values: disable
+  indentation:
+    spaces: 2
+    indent-sequences: true
+    check-multi-line-strings: true
+  key-duplicates: enable
+  key-ordering: disable
+  line-length:
+    max: 110
+    allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: true
+  new-lines: enable
+  octal-values: disable
+  quoted-strings:
+    required: only-when-needed
+  trailing-spaces: disable
+  truthy: disable

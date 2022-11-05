@@ -1,0 +1,28 @@
+---
+name: Security CodeQL
+
+on:
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: 0 3 * * *
+
+permissions:
+  security-events: write
+  actions: read
+  contents: read
+
+jobs:
+  codeql:
+    if: ${{ ! github.event.repository.private }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@dd2c410b088af7c0dc8046f3ac9a8f4148492a95 # tag=v1.4.5
+        with:
+          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@c3b6fce4ee2ca25bc1066aa3bf73962fda0e8898 # tag=v2.1.31
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@a8cabafa5665779b124056fa190a1f27335eb8a1 # # tag=v2.1.21

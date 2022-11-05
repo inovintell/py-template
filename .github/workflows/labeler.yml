@@ -1,0 +1,25 @@
+---
+name: Pull Request Labeler
+on:
+  - pull_request_target
+
+permissions:  # added using https://github.com/step-security/secure-workflows
+  contents: read
+
+jobs:
+  label:
+    permissions:
+      contents: read
+      pull-requests: write
+    runs-on: ubuntu-latest
+    if: github.actor != 'renovate[bot]'
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@dd2c410b088af7c0dc8046f3ac9a8f4148492a95 # tag=v1.4.5
+        with:
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
+      - uses: actions/labeler@e54e5b338fbd6e6cdb5d60f51c22335fc57c401e # tag=v4.0.1
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}

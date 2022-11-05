@@ -1,0 +1,32 @@
+---
+name: Security Semgrep
+
+on:
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: 0 3 * * *
+
+permissions:  # added using https://github.com/step-security/secure-workflows
+  contents: read
+
+jobs:
+  semgrep:
+    runs-on: ubuntu-latest
+    container:
+      image: returntocorp/semgrep
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
+      - name: Run Semgrep
+        run: semgrep ci
+        env:
+          # Select rules for your scan with one of these two options.
+          # Option 1: set hard-coded rulesets
+          SEMGREP_RULES: >- # more at semgrep.dev/r
+            p/secrets
+            p/security-audit
+            p/ci
+            p/github-actions
+          SEMGREP_AUDIT_ON: push

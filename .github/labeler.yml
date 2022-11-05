@@ -1,0 +1,12 @@
+---
+actions:
+  - .github/**/*
+deps:
+  - renovate.json
+config:
+  - .editorconfig
+  - .yamllint.yml
+docs:
+  - README.md
+  - CONTRIBUTING.md
+  - CODE_OF_CONDUCT.md
