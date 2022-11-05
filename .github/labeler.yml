@@ -3,10 +3,19 @@ actions:
   - .github/**/*
 deps:
   - renovate.json
+  - poetry.lock
 config:
   - .editorconfig
   - .yamllint.yml
+  - .gitignore
+  - pyproject.toml
 docs:
   - README.md
   - CONTRIBUTING.md
   - CODE_OF_CONDUCT.md
+  - docs/**/*
+  - mkdocs.yml
+tests:
+  - tests/**/*
+src:
+  - src/**/*

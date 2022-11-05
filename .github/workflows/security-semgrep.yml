@@ -29,4 +29,5 @@ jobs:
             p/security-audit
             p/ci
             p/github-actions
+            p/python
           SEMGREP_AUDIT_ON: push
