@@ -1,0 +1,38 @@
+---
+name: Python Formatter & Linter
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**.py'
+
+permissions:
+  checks: write
+  contents: write
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    concurrency: formatter
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@2e205a28d0e1da00c5f53b161f4067b052c61f34 # tag=v1.5.0
+        with:
+          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+      - name: Checkout repository
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
+      - name: Setup Dependencies
+        uses: ./.github/actions/setup-poetry
+      - name: Run linters and fixers
+        uses: wearerequired/lint-action@66e2f9c9bf05b7aca19dbb59aebad95da5ddc537 # tag=v2.1.0
+        with:
+          git_name: github-actions[bot]
+          git_email: github-actions[bot]@users.noreply.github.com
+          commit_message: 'fix: format python code'
+          auto_fix: true
+          mypy: true
+          mypy_command_prefix: poetry run
+          black: true
+          black_command_prefix: poetry run

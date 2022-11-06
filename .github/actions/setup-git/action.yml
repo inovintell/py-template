@@ -1,0 +1,31 @@
+---
+name: Setup git
+description: Setup git credentials for pushing etc.
+
+inputs:
+  email:
+    description: Email used for git config --global user.email, e.g. "you@example.com"
+    required: false
+    default: github-actions[bot]@users.noreply.github.com
+  name:
+    description: Name of the user
+    required: false
+    default: github-actions[bot]
+
+outputs:
+  email:
+    description: Email used for git configuration
+    value: ${{ inputs.email }}
+  name:
+    description: Name used for git configuration
+    value: ${{ inputs.name }}
+
+runs:
+  using: composite
+  steps:
+    - name: Setup git email
+      shell: bash
+      run: git config --global user.email ${{ inputs.email }}
+    - name: Setup git name
+      shell: bash
+      run: git config --global user.name ${{ inputs.name }}

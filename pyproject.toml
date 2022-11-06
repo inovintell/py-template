@@ -28,9 +28,43 @@ pytest-cov = { version = "^4.0.0", optional = true}
 pytest-xdist = { version = "^3.0", optional = true}
 pytest-html = { version = "^3.1.1", optional = true}
 
-# Linters
+# Fixers
 black = { version = "^22.3.0", optional = true }
+autoflake = { version = "^1.7.7", optional = true }
+isort = { version = "^5.10.1", optional = true }
+docformatter = { version = "^1.5.0", optional = true, extras=["tomli"] }
+tryceratops = { version = "^1.1.0", optional = true }
+
+# Linters
 mypy = { version = "^0.982", optional = true }
+
+# Flake
+flakeheaven = { version = "^3.2.1", optional = true }
+# Docstrings
+flake8-pydocstyle = { version = "^0.1.0", optional = true }
+# Complexity
+flake8-cognitive-complexity = { version = "^0.1.0", optional = true }
+flake8-functions = { version = "^0.0.7", optional = true }
+flake8-simplify = { version = "^0.19.3", optional = true }
+# Annotations
+flake8-annotations = { version = "^2.9.1", optional = true }
+flake8-annotations-complexity = { version = "^0.0.7", optional = true }
+# Other
+flake8-bugbear = { version = "^22.10.27", optional = true }
+flake8-pytest-style = { version = "^1.6.0", optional = true }
+flake8-quotes = { version = "^3.3.1", optional = true }
+flake8-pie = { version = "^0.15.0", optional = true }
+flake8-newspaper-style = { version = "^0.4.3", optional = true }
+flake8-use-pathlib = { version = "^0.3.0", optional = true }
+flake8-use-fstring = { version = "^1.4", optional = true }
+flake8-builtins = { version = "^1.5.2", optional = true }
+pep8-naming = { version = "^0.10.0", optional = true }
+dlint = { version = "^0.13.0", optional = true }
+
+# Reporters
+radon = { version = "^5.1.0", optional = true }
+vulture = { version = "^2.6", optional = true }
+cohesion = { version = "^1.0.0", optional = true }
 
 # Docs
 mkdocs = { version = "^1.3.0", optional = true }
@@ -54,9 +88,40 @@ tests = [
   "pytest-html",
 ]
 
-linters = [
+fixers = [
   "black",
-  "mypy"
+  "autoflake",
+  "isort",
+  "docformatter",
+  "tryceratops",
+]
+
+flake = [
+  "flakeheaven",
+  # Docstrings
+  "flake8-pydocstyle",
+  # Complexity
+  "flake8-cognitive-complexity",
+  "flake8-functions",
+  "flake8-simplify",
+  # Annotations
+  "flake8-annotations",
+  "flake8-annotations-complexity",
+  # Other
+  "flake8-bugbear",
+  "flake8-pytest-style",
+  "flake8-quotes",
+  "flake8-pie",
+  "flake8-newspaper-style",
+  "flake8-use-pathlib",
+  "flake8-use-fstring",
+  "flake8-builtins",
+  "pep8-naming",
+  "dlint",
+]
+
+linters = [
+  "mypy",
 ]
 
 docs = [
@@ -68,11 +133,53 @@ docs = [
   "mkdocs-section-index",
   "mkdocs-gen-files",
   "mkdocs-minify-plugin",
-  "interrogate"
+  "interrogate",
 ]
 
 release = [
-  "python-semantic-release"
+  "python-semantic-release",
+]
+
+###############################################################################
+#
+#                               FIXERS SETTINGS
+#
+###############################################################################
+
+[tool.black]
+line-length = 79
+
+[tool.autoflake]
+recursive = true
+
+[tool.isort]
+profile = "black"
+
+[tool.docformatter]
+in-place = true
+recursive = true
+wrap-summaries = 79
+wrap-descriptions = 79
+
+###############################################################################
+#
+#                               FLAKE8 SETTINGS
+#
+###############################################################################
+
+[tool.flakeheaven]
+max_line_length = 79
+max_doc_length = 79
+format = "grouped"
+show_source  = true
+ignore = [
+  "H601",
+  "W503",
+  "BLK100",
+  "R70",
+  "C90",
+  "H60",
+  "CFQ003"
 ]
 
 ###############################################################################

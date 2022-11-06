@@ -1,0 +1,31 @@
+---
+name: Generate Documentation
+
+on:
+  workflow_run:
+    workflows:
+      - Python Package Semantic Release
+    types:
+      - completed
+    branches:
+      - main
+
+jobs:
+  docs:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@2e205a28d0e1da00c5f53b161f4067b052c61f34 # tag=v1.5.0
+        with:
+          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+      - name: Checkout repository
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
+        with:
+          fetch-depth: 0
+      - name: Setup Dependencies
+        uses: ./.github/actions/setup-poetry
+      - name: Setup git credentials
+        uses: ./.github/actions/setup-git
+      - name: Publish docs
+        run: "poetry run mkdocs gh-deploy --message 'feat: release {version}'"
