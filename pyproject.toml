@@ -59,7 +59,6 @@ linters = [
   "mypy"
 ]
 
-
 docs = [
   "mkdocs",
   "mkdocs-material",
@@ -73,29 +72,6 @@ docs = [
 ]
 
 release = [
-  "python-semantic-release"
-]
-
-all = [
-  # Tests
-  "pytest",
-  "pytest-cov",
-  "pytest-xdist",
-  "pytest-html",
-  # Linters
-  "black",
-  "mypy",
-  # Documentation
-  "mkdocs",
-  "mkdocs-material",
-  "mkdocstrings",
-  "mkdocstrings-python",
-  "mkdocs-literate-nav",
-  "mkdocs-section-index",
-  "mkdocs-gen-files",
-  "mkdocs-minify-plugin",
-  "interrogate",
-  # Release
   "python-semantic-release"
 ]
 
