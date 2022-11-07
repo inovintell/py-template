@@ -36,9 +36,6 @@ docformatter = { version = "^1.5.0", optional = true, extras=["tomli"] }
 tryceratops = { version = "^1.1.0", optional = true }
 
 # Linters
-mypy = { version = "^0.982", optional = true }
-
-# Flake
 flakeheaven = { version = "^3.2.1", optional = true }
 # Docstrings
 flake8-pydocstyle = { version = "^0.2.0", optional = true }
@@ -60,6 +57,7 @@ flake8-use-fstring = { version = "^1.4", optional = true }
 flake8-builtins = { version = "^1.5.2", optional = true }
 pep8-naming = { version = "^0.10.0", optional = true }
 dlint = { version = "^0.13.0", optional = true }
+mypy = { version = "^0.982", optional = true }
 
 # Reporters
 radon = { version = "^5.1.0", optional = true }
@@ -96,7 +94,7 @@ fixers = [
   "tryceratops",
 ]
 
-flake = [
+linters = [
   "flakeheaven",
   # Docstrings
   "flake8-pydocstyle",
@@ -118,9 +116,6 @@ flake = [
   "flake8-builtins",
   "pep8-naming",
   "dlint",
-]
-
-linters = [
   "mypy",
 ]
 
