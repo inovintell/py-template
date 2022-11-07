@@ -8,9 +8,9 @@ on:
 
 jobs:
   release:
-    if: >
-      ${{ ! contains(github.repository, 'template') }}
-      && ${{ ! contains(github.event.head_commit.message, 'Initial commit') }}
+    if: |
+      ! contains(github.repository, 'template') &&
+      ! contains(github.event.head_commit.message, 'Initial commit') }}
     runs-on: ubuntu-latest
     concurrency: release
 
