@@ -1,1 +1,1 @@
-# {{cookiecutter.repository}}
+../README.md
