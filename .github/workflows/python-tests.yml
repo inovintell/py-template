@@ -1,11 +1,15 @@
 ---
 name: Python Tests
+
 on:
-  workflow_run:
-    workflows:
-      - Python Code Improver
-    types:
-      - completed
+  pull_request:
+    branches:
+      - main
+    paths:
+      - src/**
+      - tests/**
+      - pyproject.toml
+      - poetry.lock
 
 concurrency:
   group: test-${{ github.ref }}
@@ -13,7 +17,6 @@ concurrency:
 
 jobs:
   tests:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     strategy:
       fail-fast: true
       matrix:
@@ -29,6 +32,15 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@2e205a28d0e1da00c5f53b161f4067b052c61f34 # tag=v1.5.0
+        with:
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
+            files.pythonhosted.org:443
+            github.com:443
+            pypi.org:443
       - name: Checkout repository
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
       - name: Setup Dependencies
@@ -47,7 +59,12 @@ jobs:
       - name: Harden Runner
         uses: step-security/harden-runner@2e205a28d0e1da00c5f53b161f4067b052c61f34 # tag=v1.5.0
         with:
-          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
+            files.pythonhosted.org:443
+            github.com:443
+            pypi.org:443
       - name: Check out repository code
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
       - name: Setup Dependencies

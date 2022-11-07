@@ -15,16 +15,15 @@ jobs:
       - name: Harden Runner
         uses: step-security/harden-runner@2e205a28d0e1da00c5f53b161f4067b052c61f34 # tag=v1.5.0
         with:
-          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
+            files.pythonhosted.org:443
+            github.com:443
+            pypi.org:443
       - name: Checkout repository
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
       - name: Setup Dependencies
         uses: ./.github/actions/setup-poetry
-      - name: Run interrogate check
-        run: poetry run interrogate -c pyproject.toml -o docstrings-coverage.md src
-      - name: Upload docstrings coverage report
-        if: always()
-        uses: actions/upload-artifact@83fd05a356d7e2593de66fc9913b3002723633cb # tag=v3.1.1
-        with:
-          name: docstrings-coverage
-          path: docstrings-coverage.md
+      - name: Run docstrings coverage
+        run: poetry run interrogate -c pyproject.toml src

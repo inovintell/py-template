@@ -18,7 +18,14 @@ jobs:
       - name: Harden Runner
         uses: step-security/harden-runner@2e205a28d0e1da00c5f53b161f4067b052c61f34 # tag=v1.5.0
         with:
-          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
+            files.pythonhosted.org:443
+            github.com:443
+            pypi.fury.io:443
+            pypi.org:443
+            test.pypi.org:443
       - name: Checkout repository
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
         with:
@@ -33,6 +40,6 @@ jobs:
         run: poetry run semantic-release publish
       - name: Deploy to registry
         run: |
-          poetry config repositories.${{ secrets.REPOSITORY_NAME }} ${{ secrets.REPOSITORY_URL }}
-          poetry config pypi-token.${{ secrets.REPOSITORY_NAME }} ${{ secrets.PYTHON_TOKEN }}
-          poetry publish --build --repository ${{ secrets.REPOSITORY_NAME }}
+          poetry config repositories.${{ secrets.PYPI_NAME }} ${{ secrets.PYPI_URL }}
+          poetry config pypi-token.${{ secrets.PYPI_NAME }} ${{ secrets.PYPI_TOKEN }}
+          poetry publish --build --repository ${{ secrets.PYPI_NAME }}
