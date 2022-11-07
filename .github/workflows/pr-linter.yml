@@ -27,7 +27,8 @@ jobs:
           egress-policy: block
           allowed-endpoints: >
             api.github.com:443
-      - uses: amannn/action-semantic-pull-request@01d5fd8a8ebb9aafe902c40c53f0f4744f7381eb # tag=v5.0.2
+      - name: Lint Pull Request
+        uses: amannn/action-semantic-pull-request@01d5fd8a8ebb9aafe902c40c53f0f4744f7381eb # tag=v5.0.2
         with:
           validateSingleCommit: true
           wip: true
