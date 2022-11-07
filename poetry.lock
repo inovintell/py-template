@@ -1589,7 +1589,7 @@ tests = ["pytest", "pytest-cov", "pytest-xdist", "pytest-html", "pytest-pretty-t
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "5d56a7adc20f538dbce823df5980a92b57aa0b58a57a75567f0fa8c6b2de3921"
+content-hash = "a37c434aadcd61dfb0a7c138e47a98a80dda82894cd0aa28642f8ca45e3025df"
 
 [metadata.files]
 astor = [
