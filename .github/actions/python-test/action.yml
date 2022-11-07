@@ -36,7 +36,7 @@ runs:
     - name: Run PR test suite
       shell: bash
       run: >
-        poetry run pytest -n auto --cov=p_template_testing
+        poetry run pytest -n auto --cov=${{ github.event.repository.name }}
         --html=.report.html --self-contained-html tests
     - name: Upload coverage data
       if: inputs.upload-coverage
