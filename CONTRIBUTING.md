@@ -1,7 +1,7 @@
 # Contributing to {{cookiecutter.repository}}
 
-We love your input! We want to make contributing to this project as easy and transparent as
-possible, whether it's:
+We love your input! We want to make contributing to this project
+as easy and transparent as possible, whether it's:
 
 - Reporting a bug
 - Discussing the current state of the code
@@ -33,7 +33,9 @@ We actively welcome your pull requests:
 __License contents are located in [LICENSE.md](./LICENSE.md) file.__
 
 In short, when you submit code changes, your submissions are understood
-to be under the same [license](http://choosealicense.com/licenses) that covers the project.
+to be under the same [license](http://choosealicense.com/licenses) that covers
+the project.
+
 Feel free to contact the maintainers if that's a concern.
 
 ## Report bugs via [Github Issues](https://github.com/{{cookiecutter.repository}}/issues)
