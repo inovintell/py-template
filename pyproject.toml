@@ -51,7 +51,7 @@ flake8-annotations-complexity = { version = "^0.0.7", optional = true }
 flake8-bugbear = { version = "^22.10.27", optional = true }
 flake8-pytest-style = { version = "^1.6.0", optional = true }
 flake8-quotes = { version = "^3.3.1", optional = true }
-flake8-pie = { version = "^0.15.0", optional = true }
+flake8-pie = { version = "^0.16.0", optional = true }
 flake8-newspaper-style = { version = "^0.4.3", optional = true }
 flake8-use-pathlib = { version = "^0.3.0", optional = true }
 flake8-use-fstring = { version = "^1.4", optional = true }
