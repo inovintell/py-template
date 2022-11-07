@@ -393,17 +393,6 @@ optional = true
 python-versions = ">=3.6,<4.0"
 
 [[package]]
-name = "flake8-polyfill"
-version = "1.0.2"
-description = "Polyfill package for Flake8 plugins"
-category = "main"
-optional = true
-python-versions = "*"
-
-[package.dependencies]
-flake8 = "*"
-
-[[package]]
 name = "flake8-pydocstyle"
 version = "0.2.0"
 description = "flake8 plugin that integrates pydocstyle"
@@ -963,14 +952,14 @@ python-versions = ">=3.7"
 
 [[package]]
 name = "pep8-naming"
-version = "0.10.0"
+version = "0.13.2"
 description = "Check PEP-8 naming conventions, plugin for flake8"
 category = "main"
 optional = true
-python-versions = "*"
+python-versions = ">=3.7"
 
 [package.dependencies]
-flake8-polyfill = ">=1.0.2,<2"
+flake8 = ">=3.9.1"
 
 [[package]]
 name = "pkginfo"
@@ -1589,7 +1578,7 @@ tests = ["pytest", "pytest-cov", "pytest-xdist", "pytest-html", "pytest-pretty-t
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "ddcb3d1a075c5d6c84b50434ef29e740f876713f596e370874ce251ca2c0c88d"
+content-hash = "cb89c57fc62204e0a96437aecaa62cbafee2be4d614268424c5d4389669ed0d2"
 
 [metadata.files]
 astor = [
@@ -1875,10 +1864,6 @@ flake8-plugin-utils = [
     {file = "flake8-plugin-utils-1.3.2.tar.gz", hash = "sha256:20fa2a8ca2decac50116edb42e6af0a1253ef639ad79941249b840531889c65a"},
     {file = "flake8_plugin_utils-1.3.2-py3-none-any.whl", hash = "sha256:1fe43e3e9acf3a7c0f6b88f5338cad37044d2f156c43cb6b080b5f9da8a76f06"},
 ]
-flake8-polyfill = [
-    {file = "flake8-polyfill-1.0.2.tar.gz", hash = "sha256:e44b087597f6da52ec6393a709e7108b2905317d0c0b744cdca6208e670d8eda"},
-    {file = "flake8_polyfill-1.0.2-py2.py3-none-any.whl", hash = "sha256:12be6a34ee3ab795b19ca73505e7b55826d5f6ad7230d31b18e106400169b9e9"},
-]
 flake8-pydocstyle = [
     {file = "flake8-pydocstyle-0.2.0.tar.gz", hash = "sha256:d2553a22d6d255030b1f81e3059470efd075c544aeca81fee4be8558551f615a"},
     {file = "flake8_pydocstyle-0.2.0-py3-none-any.whl", hash = "sha256:3872486de955621734e2e47dfaf711c640112ebbe9ef4289c9a4ae36c2420b69"},
@@ -2115,8 +2100,8 @@ pathspec = [
     {file = "pathspec-0.10.1.tar.gz", hash = "sha256:7ace6161b621d31e7902eb6b5ae148d12cfd23f4a249b9ffb6b9fee12084323d"},
 ]
 pep8-naming = [
-    {file = "pep8-naming-0.10.0.tar.gz", hash = "sha256:f3b4a5f9dd72b991bf7d8e2a341d2e1aa3a884a769b5aaac4f56825c1763bf3a"},
-    {file = "pep8_naming-0.10.0-py2.py3-none-any.whl", hash = "sha256:5d9f1056cb9427ce344e98d1a7f5665710e2f20f748438e308995852cfa24164"},
+    {file = "pep8-naming-0.13.2.tar.gz", hash = "sha256:93eef62f525fd12a6f8c98f4dcc17fa70baae2f37fa1f73bec00e3e44392fa48"},
+    {file = "pep8_naming-0.13.2-py3-none-any.whl", hash = "sha256:59e29e55c478db69cffbe14ab24b5bd2cd615c0413edf790d47d3fb7ba9a4e23"},
 ]
 pkginfo = [
     {file = "pkginfo-1.8.3-py2.py3-none-any.whl", hash = "sha256:848865108ec99d4901b2f7e84058b6e7660aae8ae10164e015a6dcf5b242a594"},
