@@ -8,10 +8,6 @@ inputs:
       Version range or exact version of a Python version to use, using SemVer's version range syntax.
     required: false
     default: 3.x
-  extras:
-    description: Space separated extras to install (should be the largest set, 'all' by default)
-    required: false
-    default: all
 
 outputs:
   python-version:
@@ -65,4 +61,4 @@ runs:
       # If we missed poetry cache install dependencies
       if: steps.setup-python.outputs.cache-hit != 'true'
       shell: bash
-      run: poetry install --extras ${{ inputs.extras }}
+      run: poetry install --all-extras
