@@ -1,1 +1,1 @@
-../CHANGELOG.md
+<!--next-version-placeholder-->
