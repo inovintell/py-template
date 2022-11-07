@@ -1567,8 +1567,7 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [extras]
 docs = ["mkdocs", "mkdocs-material", "mkdocstrings", "mkdocstrings-python", "mkdocs-literate-nav", "mkdocs-section-index", "mkdocs-gen-files", "mkdocs-minify-plugin", "interrogate"]
 fixers = ["black", "autoflake", "isort", "docformatter", "tryceratops"]
-flake = ["flakeheaven", "flake8-pydocstyle", "flake8-cognitive-complexity", "flake8-functions", "flake8-simplify", "flake8-annotations", "flake8-annotations-complexity", "flake8-bugbear", "flake8-pytest-style", "flake8-quotes", "flake8-pie", "flake8-newspaper-style", "flake8-use-pathlib", "flake8-use-fstring", "flake8-builtins", "pep8-naming", "dlint"]
-linters = ["mypy"]
+linters = ["flakeheaven", "flake8-pydocstyle", "flake8-cognitive-complexity", "flake8-functions", "flake8-simplify", "flake8-annotations", "flake8-annotations-complexity", "flake8-bugbear", "flake8-pytest-style", "flake8-quotes", "flake8-pie", "flake8-newspaper-style", "flake8-use-pathlib", "flake8-use-fstring", "flake8-builtins", "pep8-naming", "dlint", "mypy"]
 release = ["python-semantic-release"]
 reporters = ["radon", "vulture", "cohesion"]
 tests = ["pytest", "pytest-cov", "pytest-xdist", "pytest-html"]
@@ -1576,7 +1575,7 @@ tests = ["pytest", "pytest-cov", "pytest-xdist", "pytest-html"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "5d51c527e585a3fe53c5016cb4bdc76795eee9c709763712c498b3f8ded6ce11"
+content-hash = "8ea96a12ebd5346c63bebce6504566cf3e4eec43f7a0769cc3ef6892edcd3647"
 
 [metadata.files]
 astor = [
