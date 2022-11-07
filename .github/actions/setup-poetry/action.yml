@@ -27,8 +27,8 @@ runs:
       id: pipx-env-vars
       shell: bash
       run: |
-        echo "::set-output name=pipx-home::${PIPX_HOME}"
-        echo "::set-output name=pipx-bin-dir::${PIPX_BIN_DIR}"
+        echo "pipx-home=${PIPX_HOME}" >> $GITHUB_OUTPUT
+        echo "pipx-bin-dir=${PIPX_BIN_DIR}" >> $GITHUB_OUTPUT
     - name: Load pipx cache
       # If env vars are not defined do not load cache
       if: >

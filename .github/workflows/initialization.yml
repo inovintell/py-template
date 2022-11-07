@@ -54,7 +54,7 @@ jobs:
           rm ${{ github.event.repository.name }}/.github/workflows/initialization.yml
           mv ${{ github.event.repository.name }}/cookiecutter.json ./
           mv ${{ github.event.repository.name }} '{{cookiecutter.repository}}'
-          echo "::set-output name=working_directory::$(pwd)"
+          echo "working_directory=$(pwd)" >> $GITHUB_OUTPUT
       - name: Create repo from template
         working-directory: ${{ steps.hack.outputs.working_directory }}/../
         run: >
