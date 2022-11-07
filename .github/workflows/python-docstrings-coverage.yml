@@ -1,21 +1,15 @@
 ---
-name: Security CodeQL
+name: Python Docstrings Coverage
 
 on:
   pull_request:
     branches:
       - main
-  schedule:
-    - cron: 0 3 * * *
-
-permissions:
-  security-events: write
-  actions: read
-  contents: read
+    paths:
+      - src/**
 
 jobs:
-  codeql:
-    if: ${{ ! github.event.repository.private }}
+  coverage:
     runs-on: ubuntu-latest
     steps:
       - name: Harden Runner
@@ -26,10 +20,11 @@ jobs:
         uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
       - name: Setup Dependencies
         uses: ./.github/actions/setup-poetry
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@c3b6fce4ee2ca25bc1066aa3bf73962fda0e8898 # tag=v2.1.31
+      - name: Run interrogate check
+        run: poetry run interrogate -c pyproject.toml -o docstrings-coverage.md src
+      - name: Upload docstrings coverage report
+        if: always()
+        uses: actions/upload-artifact@83fd05a356d7e2593de66fc9913b3002723633cb # tag=v3.1.1
         with:
-          languages: python
-          setup-python-dependencies: false
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@a8cabafa5665779b124056fa190a1f27335eb8a1 # # tag=v2.1.21
+          name: docstrings-coverage
+          path: docstrings-coverage.md

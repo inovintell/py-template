@@ -1,0 +1,101 @@
+---
+name: Python Code Improver
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - src/**
+      - tests/**
+      - pyproject.toml
+      - poetry.lock
+
+permissions:
+  checks: write
+  contents: write
+
+jobs:
+  format:
+    if: ${{ ! contains(github.repository, 'template') }}
+    runs-on: ubuntu-latest
+    concurrency: formatter
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@2e205a28d0e1da00c5f53b161f4067b052c61f34 # tag=v1.5.0
+        with:
+          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+      - name: Checkout repository
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
+      - name: Setup Dependencies
+        uses: ./.github/actions/setup-poetry
+      - name: Run formatters
+        run: |
+          poetry run autoflake --recursive --in-place .
+          poetry run isort .
+          poetry run tryceratops --autofix .
+          poetry run docformatter --recursive --in-place .
+          poetry run black .
+      - name: Push changes
+        uses: stefanzweifel/git-auto-commit-action@0b007fbd1180b8e3a3668b21c6517392fe8f26eb # tag=v4.15.4
+        with:
+          commit_user_name: github-actions[bot]
+          commit_user_email: github-actions[bot]@users.noreply.github.com
+          commit_message: 'fix: format Python code'
+          add_options: --all
+          push_options: --force
+  lint:
+    needs: format
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@2e205a28d0e1da00c5f53b161f4067b052c61f34 # tag=v1.5.0
+        with:
+          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+      - name: Checkout repository
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
+      - name: Setup Dependencies
+        uses: ./.github/actions/setup-poetry
+      - name: Run linters
+        run: poetry run flakeheaven lint .
+  report:
+    needs: format
+    runs-on: ubuntu-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@2e205a28d0e1da00c5f53b161f4067b052c61f34 # tag=v1.5.0
+        with:
+          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+      - name: Checkout repository
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
+      - name: Setup Dependencies
+        uses: ./.github/actions/setup-poetry
+      - name: Run reporters
+        run: |
+          echo "# Code condition report" >> $GITHUB_STEP_SUMMARY
+
+          echo "## Basic code statistics (radon)" >> $GITHUB_STEP_SUMMARY
+          echo "Class | Function | Method " >> $GITHUB_STEP_SUMMARY
+          echo "---|---|---" >> $GITHUB_STEP_SUMMARY
+          echo "C | F | M " >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Good | Bad | Worst " >> $GITHUB_STEP_SUMMARY
+          echo "---|---|---" >> $GITHUB_STEP_SUMMARY
+          echo "A | C | F " >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Maintainability Index" >> $GITHUB_STEP_SUMMARY
+          poetry run radon mi . >> $GITHUB_STEP_SUMMARY
+          echo "### Cyclomatic Complexity" >> $GITHUB_STEP_SUMMARY
+          poetry run radon cc --total-average . >> $GITHUB_STEP_SUMMARY
+
+          echo "## Cohesion levels (cohesion)" >> $GITHUB_STEP_SUMMARY
+          poetry run cohesion -d . >> $GITHUB_STEP_SUMMARY
+
+          echo "## Possibly dead code (vulture)" >> $GITHUB_STEP_SUMMARY
+          poetry run vulture . >> $GITHUB_STEP_SUMMARY || true
+
+          echo "## Advanced code statistics (radon)" >> $GITHUB_STEP_SUMMARY
+          echo "### Halstead Metrics" >> $GITHUB_STEP_SUMMARY
+          poetry run radon hal . >> $GITHUB_STEP_SUMMARY
+          echo "### Raw Metrics" >> $GITHUB_STEP_SUMMARY
+          poetry run radon raw . >> $GITHUB_STEP_SUMMARY

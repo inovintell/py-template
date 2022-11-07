@@ -1,0 +1,52 @@
+---
+name: Python Test
+description: Run pytest and (optionally) upload coverage as a GitHub artifact
+
+inputs:
+  coverage-name:
+    description: Name of the uploaded coverage artifact
+    required: false
+  upload-coverage:
+    description: Whether coverage should be uploaded as an artifact.
+    default: true
+  test-report-name:
+    description: Name of the uploaded HTML test report
+    required: false
+  upload-test-report:
+    description: Whether HTML test report should be uploaded as an artifact.
+    default: true
+
+outputs:
+  coverage-name:
+    description: Name of the uploaded coverage artifact
+    value: ${{ inputs.artifact-name }}
+  upload-coverage:
+    description: Whether coverage was uploaded as an artifact.
+    value: ${{ inputs.upload-coverage }}
+  test-report-name:
+    description: Name of the uploaded HTML test report
+    value: ${{ inputs.test-report-name }}
+  upload-test-report:
+    description: Whether HTML test report should be uploaded as an artifact.
+    value: ${{ inputs.upload-test-report }}
+
+runs:
+  using: composite
+  steps:
+    - name: Run PR test suite
+      shell: bash
+      run: >
+        poetry run pytest -n auto --cov=${{ github.event.repository.name }}
+        --html=.report.html --self-contained-html tests
+    - name: Upload coverage data
+      if: inputs.upload-coverage
+      uses: actions/upload-artifact@83fd05a356d7e2593de66fc9913b3002723633cb # tag=v3.1.1
+      with:
+        name: ${{ inputs.coverage-name }}
+        path: .coverage*
+    - name: Upload test report
+      if: inputs.upload-test-report
+      uses: actions/upload-artifact@83fd05a356d7e2593de66fc9913b3002723633cb # tag=v3.1.1
+      with:
+        name: ${{ inputs.test-report-name }}
+        path: .report.html

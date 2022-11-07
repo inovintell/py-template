@@ -1,0 +1,56 @@
+---
+name: Python Tests
+on:
+  workflow_run:
+    workflows:
+      - Python Code Improver
+    types:
+      - completed
+
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    strategy:
+      fail-fast: true
+      matrix:
+        py:
+          - '3.10'
+          - '3.9'
+          - '3.8'
+        os:
+          - ubuntu-latest
+          - macos-latest
+    name: >
+      ${{ matrix.os }} | py-${{ matrix.py }}
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
+      - name: Setup Dependencies
+        uses: ./.github/actions/setup-poetry
+      - name: Run Python tests
+        uses: ./.github/actions/python-test
+        with:
+          coverage-name: ${{ matrix.os }}-py-${{ matrix.py }}-coverage
+          test-report-name: ${{ matrix.os }}-py-${{ matrix.py }}-tests
+
+  coverage:
+    needs: tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@2e205a28d0e1da00c5f53b161f4067b052c61f34 # tag=v1.5.0
+        with:
+          egress-policy: audit # TODO: change to 'egress-policy: block' after couple of runs
+      - name: Check out repository code
+        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
+      - name: Setup Dependencies
+        uses: ./.github/actions/setup-poetry
+      - name: Upload combined coverage
+        uses: ./.github/actions/python-coverage
