@@ -13,7 +13,6 @@ nav:
   - API Reference: reference/
   - Contributing: CONTRIBUTING.md
   - Code of Conduct: CODE_OF_CONDUCT.md
-  - Changelog: CHANGELOG.md
 
 theme:
   name: material
