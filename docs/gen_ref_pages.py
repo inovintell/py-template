@@ -1,6 +1,7 @@
 """Generate the code reference pages and navigation.
 
-Taken directly from: https://mkdocstrings.github.io/recipes/#bind-pages-to-sections-themselves
+Taken directly from:
+https://mkdocstrings.github.io/recipes/#bind-pages-to-sections-themselves
 
 __Please note:__
 
