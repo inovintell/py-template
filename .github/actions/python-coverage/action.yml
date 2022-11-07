@@ -3,9 +3,6 @@ name: Python Coverage
 description: Download (optionally) coverage artifacts, combine them and display results
 
 inputs:
-  download:
-    description: Whether coverage files should be downloaded
-    default: true
   upload-html:
     description: Whether HTML report should be uploaded as an artifact
     default: true
@@ -14,15 +11,12 @@ inputs:
     default: 100
 
 outputs:
-  download:
-    description: Whether coverage files were downloaded
-    value: ${{ inputs.download }}
   upload-html:
     description: Whether HTML report was uploaded as an artifact
     value: ${{ inputs.upload-html }}
   fail-under:
-    description: Coverage treshold in % below which action would fail
-    default: 100
+    description: Coverage treshold in % below which action will fail
+    value: ${{ inputs.fail-under }}
 
 runs:
   using: composite
@@ -34,9 +28,9 @@ runs:
       run: |
         poetry run coverage combine --keep $(find . -type f -name ".coverage*")
         poetry run coverage html --skip-empty
-        poetry run coverage report --fail-under=100
+        poetry run coverage report --fail-under=${{ inputs.fail-under }}
     - name: Upload HTML report
-      if: always()
+      if: ${{ inputs.upload-html }}
       uses: actions/upload-artifact@83fd05a356d7e2593de66fc9913b3002723633cb # tag=v3.1.1
       with:
         name: coverage
