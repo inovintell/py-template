@@ -1146,6 +1146,20 @@ python-versions = ">=3.7,<4.0"
 pytest = ">=3.0.0,<8.0.0"
 
 [[package]]
+name = "pytest-pretty-terminal"
+version = "1.1.0"
+description = "pytest plugin for generating prettier terminal output"
+category = "main"
+optional = true
+python-versions = ">=3.8"
+
+[package.dependencies]
+pytest = ">=3.4.1"
+
+[package.extras]
+test = ["pytest-adaptavist (>=5.1.1)"]
+
+[[package]]
 name = "pytest-xdist"
 version = "3.0.2"
 description = "pytest xdist plugin for distributed testing and loop-on-failing modes"
@@ -1570,12 +1584,12 @@ fixers = ["black", "autoflake", "isort", "docformatter", "tryceratops"]
 linters = ["flakeheaven", "flake8-pydocstyle", "flake8-cognitive-complexity", "flake8-functions", "flake8-simplify", "flake8-annotations", "flake8-annotations-complexity", "flake8-bugbear", "flake8-pytest-style", "flake8-quotes", "flake8-pie", "flake8-newspaper-style", "flake8-use-pathlib", "flake8-use-fstring", "flake8-builtins", "pep8-naming", "dlint", "mypy"]
 release = ["python-semantic-release"]
 reporters = ["radon", "vulture", "cohesion"]
-tests = ["pytest", "pytest-cov", "pytest-xdist", "pytest-html"]
+tests = ["pytest", "pytest-cov", "pytest-xdist", "pytest-html", "pytest-pretty-terminal"]
 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "8ea96a12ebd5346c63bebce6504566cf3e4eec43f7a0769cc3ef6892edcd3647"
+content-hash = "5d56a7adc20f538dbce823df5980a92b57aa0b58a57a75567f0fa8c6b2de3921"
 
 [metadata.files]
 astor = [
@@ -2163,6 +2177,10 @@ pytest-html = [
 pytest-metadata = [
     {file = "pytest_metadata-2.0.4-py3-none-any.whl", hash = "sha256:acb739f89fabb3d798c099e9e0c035003062367a441910aaaf2281bc1972ee14"},
     {file = "pytest_metadata-2.0.4.tar.gz", hash = "sha256:fcc653f65fe3035b478820b5284fbf0f52803622ee3f60a2faed7a7d3ba1f41e"},
+]
+pytest-pretty-terminal = [
+    {file = "pytest-pretty-terminal-1.1.0.tar.gz", hash = "sha256:3a284bfaee4dac65524762436bbd875d70ca2dd1384170ef212887f860068f8f"},
+    {file = "pytest_pretty_terminal-1.1.0-py3-none-any.whl", hash = "sha256:fe40d237383efe2d023f2b4faea9784da7f81c8b54987261ec5bb11966b98e77"},
 ]
 pytest-xdist = [
     {file = "pytest-xdist-3.0.2.tar.gz", hash = "sha256:688da9b814370e891ba5de650c9327d1a9d861721a524eb917e620eec3e90291"},
