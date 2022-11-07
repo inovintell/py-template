@@ -1,77 +1,59 @@
-# Contributing
+# Contributing to {{cookiecutter.repository}}
 
-__This repository uses [gh-flow](https://github.com/inovintell/gh-flow) for
-collaboration.__
+We love your input! We want to make contributing to this project as easy and transparent as
+possible, whether it's:
 
-> Please use it if possible, it automates most of the processes described below.
+- Reporting a bug
+- Discussing the current state of the code
+- Submitting a fix
+- Proposing new features
+- Becoming a maintainer
 
-You can see additional labels for issues/PRs
-[here](https://github.com/{{cookiecutter.repository_owner}}/{{cookiecutter.repository}}/labels)
+## We Develop with Github
 
-## Commits
+We use github to host code, to track issues and feature requests, as well
+as accept pull requests.
 
-### Messages
+## We Use [Github Flow](https://guides.github.com/introduction/flow/index.html)
 
-Commits are required to follow
-[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
-with the exact form:
+Pull requests are the best way to propose changes to the codebase
+(we use [Github Flow](https://guides.github.com/introduction/flow/index.html)).
 
-```bash
-<type>[!]: <description>
+We actively welcome your pull requests:
 
-[optional body]
+1. Fork the repo and create your branch from `master`.
+2. If you've added code that should be tested, add tests.
+3. If you've changed APIs, update the documentation.
+4. Ensure the test suite passes.
+5. Make sure your code lints.
+6. Issue that pull request!
 
-[footers]
-```
+## Any contributions you make will be under the specified Software License
 
-Type can be __ONLY__ one of (based on
-[Angular guidelines](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commits):
+__License contents are located in [LICENSE.md](./LICENSE.md) file.__
 
-- `feat` - new feature, corresponds to `MINOR` in [Semantic Versioning](https://semver.org/)
-- `fix` - fix code bud, corresonds to `FIX` in [Semantic Versioning](https://semver.org/)
+In short, when you submit code changes, your submissions are understood
+to be under the same [license](http://choosealicense.com/licenses) that covers the project.
+Feel free to contact the maintainers if that's a concern.
 
-Adding `!` __AFTER `type`__ means `BREAKING CHANGE` and corresponds to `MAJOR`
-in [Semantic Versioning](https://semver.org/).
+## Report bugs via [Github Issues](https://github.com/{{cookiecutter.repository}}/issues)
 
-Things to note:
+We use GitHub issues to track public bugs. Report a bug by opening a new issue;
+it's that easy!
 
-- __`MAJOR` HAS NO SPECIAL MEANING IN CASE OF THIS SOFTWARE (it is treated
-simply as an indication of breaking change)__
-- __Additional context (e.g. scope) should be specified as a label__
+## Use a Consistent Coding Style
 
-> __For easiest collaboration please consider using
-[gh-flow](https://github.com/inovintell/gh-flow) GitHub CLI extension
-automating most of the tasks described above!__
+Automated linters and checkers are run on each Pull Request in
+order to ensure consistent styling across the codebase.
 
-### Linting
+__Please do not merge without resolving these issues first!__
 
-Each commit (either during `push` or `pull request`) is automatically linted
-against the above schema.
+## License
 
-## Branches
+By contributing, you agree that your contributions will be
+licensed under the aforementioned license.
 
-- __`main` branch is always releasable__
-- __Each branch is created from `main`__ - each branch should be responsible
-for __small__ semantic unit of work and consist of __up to a few commits__.
-- __Each branch is named by a number__ which corresponds to issue ID.
-It should be merged with `main` as soon as possible (and as soon as CI runs
-successfully).
-- __Each branch is squashed before merging__ - changes should have in-depth
-description within an issue.
+## References
 
-> __For easiest collaboration please consider using
-[gh-flow](https://github.com/inovintell/gh-flow) GitHub CLI extension
-automating most of the tasks described above!__
-
-## Issues
-
-Please use pre-made `bug` or `feature` forms to file an issue.
-
-Your issue will be picked up by someone, __please don't @ team members!__
-
-## Releases
-
-Releases follow [semantic-release](https://github.com/semantic-release/semantic-release)
-guidelines. Due to semantic commits with scope limited
-to `feat`/`fix`/`breaking` each merged commit into main
-__should entail new release of software__.
+This document was adapted from the open-source contribution guidelines
+[created by Brian A. Danielak](https://gist.github.com/briandk/3d2e8b3ec8daf5a27a62)
