@@ -17,6 +17,7 @@ concurrency:
 
 jobs:
   tests:
+    if: ${{ ! contains(github.repository, 'template') }}
     strategy:
       fail-fast: true
       matrix:

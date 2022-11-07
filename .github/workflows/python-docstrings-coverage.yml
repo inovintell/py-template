@@ -10,6 +10,7 @@ on:
 
 jobs:
   coverage:
+    if: ${{ ! contains(github.repository, 'template') }}
     runs-on: ubuntu-latest
     steps:
       - name: Harden Runner
