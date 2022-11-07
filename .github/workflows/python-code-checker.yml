@@ -6,7 +6,10 @@ on:
     branches:
       - main
     paths:
-      - '**.py'
+      - src/**
+      - tests/**
+      - pyproject.toml
+      - poetry.lock
 
 permissions:
   checks: write

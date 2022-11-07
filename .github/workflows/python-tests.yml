@@ -1,14 +1,11 @@
 ---
 name: Python Tests
 on:
-  pull_request:
-    branches:
-      - main
-    paths:
-      - src/**
-      - tests/**
-      - pyproject.toml
-      - poetry.lock
+  workflow_run:
+    workflows:
+      - Python Code Improver
+    types:
+      - completed
 
 concurrency:
   group: test-${{ github.ref }}
@@ -16,7 +13,7 @@ concurrency:
 
 jobs:
   tests:
-    if: ${{ ! contains(github.repository, 'template') }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     strategy:
       fail-fast: true
       matrix:
