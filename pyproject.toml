@@ -69,7 +69,7 @@ cohesion = { version = "^1.0.0", optional = true }
 mkdocs = { version = "^1.3.0", optional = true }
 mkdocs-material = { version = "^8.2.13", optional = true }
 mkdocstrings = { version = "^0.19.0", optional = true }
-mkdocstrings-python = { version = "^0.7.0", optional = true }
+mkdocstrings-python = { version = "^0.8.0", optional = true }
 mkdocs-literate-nav = { version = "^0.5.0", optional = true }
 mkdocs-section-index = { version = "^0.3.4", optional = true }
 mkdocs-gen-files = { version = "^0.4.0", optional = true }
