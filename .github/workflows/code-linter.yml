@@ -1,0 +1,71 @@
+---
+name: Code Linter
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**.py'
+      - '**.yml'
+      - '**.yaml'
+
+permissions:
+  checks: write
+  contents: write
+
+jobs:
+  lint:
+    if: ${{ ! contains(github.repository, 'template') }}
+    runs-on: ubuntu-latest
+    concurrency:
+      group: lint-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@ebacdc22ef6c2cfb85ee5ded8f2e640f4c776dd5 # v2.0.0
+        with:
+          egress-policy: block
+          allowed-endpoints: >
+            api.github.com:443
+            files.pythonhosted.org:443
+            github.com:443
+            pypi.org:443
+      - name: Checkout repository
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
+        with:
+          fetch-depth: 0
+      - name: Setup Dependencies
+        uses: ./.github/actions/setup-poetry
+      - name: Run code checks
+        run: >
+          poetry run pre-commit run --from-ref origin/${{ github.base_ref }} --to-ref HEAD
+      - name: Run reporters
+        run: |
+          echo "# Code condition report" >> $GITHUB_STEP_SUMMARY
+
+          echo "## Basic code statistics (radon)" >> $GITHUB_STEP_SUMMARY
+          echo "Class | Function | Method " >> $GITHUB_STEP_SUMMARY
+          echo "---|---|---" >> $GITHUB_STEP_SUMMARY
+          echo "C | F | M " >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Good | Bad | Worst " >> $GITHUB_STEP_SUMMARY
+          echo "---|---|---" >> $GITHUB_STEP_SUMMARY
+          echo "A | C | F " >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Maintainability Index" >> $GITHUB_STEP_SUMMARY
+          poetry run radon mi src >> $GITHUB_STEP_SUMMARY
+          echo "### Cyclomatic Complexity" >> $GITHUB_STEP_SUMMARY
+          poetry run radon cc --total-average src >> $GITHUB_STEP_SUMMARY
+
+          echo "## Cohesion levels (cohesion)" >> $GITHUB_STEP_SUMMARY
+          poetry run cohesion -d src >> $GITHUB_STEP_SUMMARY
+
+          echo "## Possibly dead code (vulture)" >> $GITHUB_STEP_SUMMARY
+          poetry run vulture src >> $GITHUB_STEP_SUMMARY || true
+
+          echo "## Advanced code statistics (radon)" >> $GITHUB_STEP_SUMMARY
+          echo "### Halstead Metrics" >> $GITHUB_STEP_SUMMARY
+          poetry run radon hal src >> $GITHUB_STEP_SUMMARY
+          echo "### Raw Metrics" >> $GITHUB_STEP_SUMMARY
+          poetry run radon raw src >> $GITHUB_STEP_SUMMARY
