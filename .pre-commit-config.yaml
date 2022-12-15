@@ -1,0 +1,112 @@
+---
+fail_fast: true
+exclude: docs/gen_ref_pages.py
+repos:
+  - repo: local
+    hooks:
+      - id: poetry-check
+        name: Poetry Check
+        entry: poetry check
+        pass_filenames: false
+        language: system
+        stages:
+          - commit
+        always_run: true
+      - id: poetry-lock
+        name: Poetry Lock
+        entry: poetry lock
+        pass_filenames: false
+        language: system
+        stages:
+          - commit
+        always_run: true
+      - id: yaml-linter
+        name: YAML Linter
+        entry: poetry run yamllint
+        language: system
+        stages:
+          - commit
+        types:
+          - yaml
+      - id: python-autoflake
+        name: Python Autoflake Fixer
+        entry: poetry run autoflake --recursive --in-place .
+        language: system
+        stages:
+          - commit
+        types:
+          - python
+      - id: python-isort
+        name: Python Isort Fixer
+        entry: poetry run isort .
+        language: system
+        stages:
+          - commit
+        types:
+          - python
+      - id: python-tryceratops
+        name: Python Tryceratops Fixer
+        entry: poetry run tryceratops --autofix .
+        language: system
+        stages:
+          - commit
+        types:
+          - python
+      - id: python-docformatter
+        name: Python Docformatter Fixer
+        entry: poetry run docformatter --recursive --in-place .
+        language: system
+        stages:
+          - commit
+        types:
+          - python
+      - id: python-black
+        name: Python Black Fixer
+        entry: poetry run black .
+        language: system
+        stages:
+          - commit
+        types:
+          - python
+      - id: python-interrogate
+        name: Python Docstrings Coverage
+        entry: poetry run interrogate -c pyproject.toml .
+        pass_filenames: false
+        language: system
+        stages:
+          - commit
+        types:
+          - python
+      - id: python-flake
+        name: Python Flake Linter
+        entry: poetry run flakeheaven lint .
+        language: system
+        stages:
+          - commit
+        types:
+          - python
+      - id: python-pytype
+        name: Python Static Type Checker
+        entry: poetry run pytype .
+        language: system
+        stages:
+          - commit
+        types:
+          - python
+      - id: python-tests
+        name: Python Tests
+        entry: poetry run pytest -n auto --pretty --cov=tests
+        language: system
+        stages:
+          - commit
+        types:
+          - python
+  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
+    rev: v9.3.0
+    hooks:
+      - id: commitlint
+        name: Commit Linter
+        additional_dependencies:
+          - "@commitlint/config-conventional"
+        stages:
+          - commit-msg

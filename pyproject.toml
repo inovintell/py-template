@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 ###############################################################################
 #
-#                               POETRY
+#                                   POETRY
 #
 ###############################################################################
 
@@ -16,28 +16,51 @@ authors = ["{{cookiecutter.repository_owner}}"]
 maintainers = ["{{cookiecutter.repository_owner}}"]
 readme = "README.md"
 
+###############################################################################
+#
+#                               DEPENDENCIES
+#
+###############################################################################
+
 [tool.poetry.dependencies]
-python="^3.8"
+# Current workaround due to pytype not supporting Python 3.11
+python=">=3.8, <3.11"
 
 # A list of all of the optional dependencies, some of which are included in the
 # below `extras`. They can be opted in by apps.
 
-# Tests
+###############################################################################
+#
+#                                 TESTS
+#
+###############################################################################
 pytest = { version = "^7.2.0", optional = true}
 pytest-cov = { version = "^4.0.0", optional = true}
 pytest-xdist = { version = "^3.0", optional = true}
 pytest-html = { version = "^3.1.1", optional = true}
 pytest-pretty-terminal = { version = "^1.1.0", optional = true}
 
-# Fixers
+###############################################################################
+#
+#                                 FIXERS
+#
+###############################################################################
 black = { version = "^22.3.0", optional = true }
 autoflake = { version = "^1.7.7", optional = true }
 isort = { version = "^5.10.1", optional = true }
 docformatter = { version = "^1.5.0", optional = true, extras=["tomli"] }
 tryceratops = { version = "^1.1.0", optional = true }
 
-# Linters
+###############################################################################
+#
+#                                 LINTERS
+#
+###############################################################################
+# Runner
 flakeheaven = { version = "^3.2.1", optional = true }
+# Fixers linters
+flake8-black= { version = "^0.3.5", optional = true }
+flake8-isort = { version = "^5.0.3", optional = true }
 # Docstrings
 flake8-pydocstyle = { version = "^0.2.0", optional = true }
 # Complexity
@@ -46,6 +69,7 @@ flake8-functions = { version = "^0.0.7", optional = true }
 flake8-simplify = { version = "^0.19.3", optional = true }
 # Annotations
 flake8-annotations = { version = "^2.9.1", optional = true }
+flake8-annotations-coverage = { version = "^0.0.6", optional = true }
 flake8-annotations-complexity = { version = "^0.0.7", optional = true }
 # Other
 flake8-bugbear = { version = "^22.10.27", optional = true }
@@ -58,14 +82,25 @@ flake8-use-fstring = { version = "^1.4", optional = true }
 flake8-builtins = { version = "^2.0.0", optional = true }
 pep8-naming = { version = "^0.13.0", optional = true }
 dlint = { version = "^0.13.0", optional = true }
-mypy = { version = "^0.991", optional = true }
+# Static type checkers
+pytype = { version = "^2022.12.9", optional = true }
+# YAML
+yamllint = { version = "^1.28.0", optional = true }
 
-# Reporters
+###############################################################################
+#
+#                                 REPORTERS
+#
+###############################################################################
 radon = { version = "^5.1.0", optional = true }
 vulture = { version = "^2.6", optional = true }
 cohesion = { version = "^1.0.0", optional = true }
 
-# Docs
+###############################################################################
+#
+#                                   DOCS
+#
+###############################################################################
 mkdocs = { version = "^1.3.0", optional = true }
 mkdocs-material = { version = "^8.2.13", optional = true }
 mkdocstrings = { version = "^0.19.0", optional = true }
@@ -76,8 +111,19 @@ mkdocs-gen-files = { version = "^0.4.0", optional = true }
 mkdocs-minify-plugin = { version = "^0.6.0", optional = true }
 interrogate = { version = "^1.5.0", optional = true }
 
-# Release
+###############################################################################
+#
+#                                 RELEASE
+#
+###############################################################################
 python-semantic-release = { version = "^7.28.1", optional = true }
+
+###############################################################################
+#
+#                                  COMMIT
+#
+###############################################################################
+pre-commit = { version = "^2.2.0", optional = true }
 
 [tool.poetry.extras]
 tests = [
@@ -97,6 +143,9 @@ fixers = [
 ]
 
 linters = [
+  # Fixers linters
+  "flake8-black",
+  "flake8-isort",
   "flakeheaven",
   # Docstrings
   "flake8-pydocstyle",
@@ -106,6 +155,7 @@ linters = [
   "flake8-simplify",
   # Annotations
   "flake8-annotations",
+  "flake8-annotations-coverage",
   "flake8-annotations-complexity",
   # Other
   "flake8-bugbear",
@@ -118,7 +168,10 @@ linters = [
   "flake8-builtins",
   "pep8-naming",
   "dlint",
-  "mypy",
+  # Static checker
+  "pytype",
+  # YAML
+  "yamllint",
 ]
 
 reporters = [
@@ -141,6 +194,10 @@ docs = [
 
 release = [
   "python-semantic-release",
+]
+
+commit = [
+  "pre-commit",
 ]
 
 ###############################################################################
@@ -170,6 +227,10 @@ max_line_length = 79
 max_doc_length = 79
 format = "grouped"
 show_source  = true
+statistics = true
+
+# Plugins
+
 ignore = [
   "H601",
   "W503",
@@ -177,8 +238,31 @@ ignore = [
   "R70",
   "C90",
   "H60",
-  "CFQ003"
+  "CFQ003",
+  "E203",
 ]
+
+###############################################################################
+#
+#                             FLAKE8 PLUGIN SETTINGS
+#
+###############################################################################
+
+inline_quotes = "double"
+# Number of nesting allowed
+max_cognitive_complexity = 3
+# Maximum length of function
+max_function_length = 20
+min_coverage_percents = 100
+
+[tool.flakeheaven.plugins]
+"flake8*" = ["+*"]
+"dlint" = ["+*"]
+"pep8-naming" = ["+*"]
+"pycodestyle" = ["+*"]
+"pyflakes" = ["+*"]
+"pylint" = ["+*"]
+"tryceratops" = ["+*"]
 
 ###############################################################################
 #
@@ -191,7 +275,7 @@ sort_by_size = true
 
 ###############################################################################
 #
-#                             COVERAGE SETTINGS
+#                               COVERAGE SETTINGS
 #
 ###############################################################################
 
@@ -201,7 +285,7 @@ relative_files = true
 
 ###############################################################################
 #
-#                              DOCS COVERAGE
+#                                 DOCS COVERAGE
 #
 ###############################################################################
 
@@ -217,7 +301,7 @@ exclude = [
 
 ###############################################################################
 #
-#                             SEMANTIC RELEASE
+#                               SEMANTIC RELEASE
 #
 ###############################################################################
 
