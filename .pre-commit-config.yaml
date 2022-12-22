@@ -52,6 +52,7 @@ repos:
           - commit
         types:
           - python
+        require_serial: true
       - id: python-docformatter
         name: Python Docformatter Fixer
         entry: poetry run docformatter --recursive --in-place .
