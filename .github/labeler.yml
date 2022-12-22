@@ -9,6 +9,8 @@ config:
   - .yamllint.yml
   - .gitignore
   - pyproject.toml
+  - commitlint.config.js
+  - .pre-commit-config.yaml
 docs:
   - README.md
   - CONTRIBUTING.md
