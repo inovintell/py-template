@@ -230,15 +230,8 @@ show_source  = true
 statistics = true
 
 # Plugins
-
-ignore = [
-  "H601",
+extend_ignore = [
   "W503",
-  "BLK100",
-  "R70",
-  "C90",
-  "H60",
-  "CFQ003",
   "E203",
 ]
 
@@ -263,6 +256,13 @@ min_coverage_percents = 100
 "pyflakes" = ["+*"]
 "pylint" = ["+*"]
 "tryceratops" = ["+*"]
+
+# Specific error removals
+
+# Do not check annotations in self
+"flake8-annotations" = ["+*", "-ANN101"]
+# Ignore function not being pure
+"flake8-functions" = ["+*", "-CFQ003"]
 
 ###############################################################################
 #
