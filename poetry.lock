@@ -846,6 +846,21 @@ astor = ">=0.1"
 flake8 = ">=3.7"
 
 [[package]]
+name = "flake8-super"
+version = "0.1.3"
+description = "Python 3 super() check for flake8"
+category = "main"
+optional = true
+python-versions = "*"
+files = [
+    {file = "flake8_super-0.1.3-py3-none-any.whl", hash = "sha256:595cd65af908574867accfaa3ea2b3e4790637711859306550dc433d9105cbba"},
+]
+
+[package.dependencies]
+flake8 = ">3.0.0"
+flake8-plugin-utils = ">=1.3.2,<1.4.0"
+
+[[package]]
 name = "flake8-use-fstring"
 version = "1.4"
 description = "Flake8 plugin for string formatting style."
@@ -2711,7 +2726,7 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 commit = ["pre-commit"]
 docs = ["mkdocs", "mkdocs-material", "mkdocstrings", "mkdocstrings-python", "mkdocs-literate-nav", "mkdocs-section-index", "mkdocs-gen-files", "mkdocs-minify-plugin", "interrogate"]
 fixers = ["black", "autoflake", "isort", "docformatter", "tryceratops"]
-linters = ["flake8-black", "flake8-isort", "flakeheaven", "flake8-pydocstyle", "flake8-cognitive-complexity", "flake8-functions", "flake8-simplify", "flake8-annotations", "flake8-annotations-coverage", "flake8-annotations-complexity", "flake8-noqa", "flake8-bugbear", "flake8-pytest-style", "flake8-quotes", "flake8-pie", "flake8-newspaper-style", "flake8-use-pathlib", "flake8-use-fstring", "flake8-builtins", "pep8-naming", "dlint", "pytype", "yamllint"]
+linters = ["flake8-black", "flake8-isort", "flakeheaven", "flake8-pydocstyle", "flake8-cognitive-complexity", "flake8-functions", "flake8-simplify", "flake8-annotations", "flake8-annotations-coverage", "flake8-annotations-complexity", "flake8-super", "flake8-noqa", "flake8-bugbear", "flake8-pytest-style", "flake8-quotes", "flake8-pie", "flake8-newspaper-style", "flake8-use-pathlib", "flake8-use-fstring", "flake8-builtins", "pep8-naming", "dlint", "pytype", "yamllint"]
 release = ["python-semantic-release"]
 reporters = ["radon", "vulture", "cohesion"]
 tests = ["pytest", "pytest-cov", "pytest-xdist", "pytest-html", "pytest-pretty-terminal"]
@@ -2719,4 +2734,4 @@ tests = ["pytest", "pytest-cov", "pytest-xdist", "pytest-html", "pytest-pretty-t
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8, <3.11"
-content-hash = "e3894fb5e92c8c6ea508d6b7f5e93009c3efb4535aab63d745f1a7cbff31635f"
+content-hash = "a061a1c56e4276d81bbb0aab0f1c47ca87f98e0722c41c799ffeda1283b84a08"
