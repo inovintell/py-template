@@ -40,13 +40,13 @@ runs:
         --html=.report.html --self-contained-html tests
     - name: Upload coverage data
       if: inputs.upload-coverage
-      uses: actions/upload-artifact@83fd05a356d7e2593de66fc9913b3002723633cb # tag=v3.1.1
+      uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
       with:
         name: ${{ inputs.coverage-name }}
         path: .coverage*
     - name: Upload test report
       if: inputs.upload-test-report
-      uses: actions/upload-artifact@83fd05a356d7e2593de66fc9913b3002723633cb # tag=v3.1.1
+      uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
       with:
         name: ${{ inputs.test-report-name }}
         path: .report.html
