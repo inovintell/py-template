@@ -35,7 +35,7 @@ runs:
         steps.pipx-env-vars.outputs.pipx-home != ''
         && steps.pipx-env-vars.outputs.pipx-bin-dir != ''
       id: pipx-cache
-      uses: actions/cache@4723a57e26efda3a62cbde1812113b730952852d # v3.2.2
+      uses: actions/cache@58c146cc91c5b9e778e71775dfe9bf1442ad9a12 # v3.2.3
       with:
         path: |
           ${{ steps.pipx-env-vars.outputs.pipx-home }}/venvs/poetry
