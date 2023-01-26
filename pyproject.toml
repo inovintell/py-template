@@ -68,7 +68,7 @@ flake8-cognitive-complexity = { version = "^0.1.0", optional = true }
 flake8-functions = { version = "^0.0.7", optional = true }
 flake8-simplify = { version = "^0.19.3", optional = true }
 # Annotations
-flake8-annotations = { version = "^2.9.1", optional = true }
+flake8-annotations = { version = "^3.0.0", optional = true }
 flake8-annotations-coverage = { version = "^0.0.6", optional = true }
 flake8-annotations-complexity = { version = "^0.0.7", optional = true }
 # Other
