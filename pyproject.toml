@@ -45,7 +45,7 @@ pytest-pretty-terminal = { version = "^1.1.0", optional = true}
 #                                 FIXERS
 #
 ###############################################################################
-black = { version = "^22.3.0", optional = true }
+black = { version = "^23.0.0", optional = true }
 autoflake = { version = "^1.7.7", optional = true }
 isort = { version = "^5.10.1", optional = true }
 docformatter = { version = "^1.5.0", optional = true, extras=["tomli"] }
