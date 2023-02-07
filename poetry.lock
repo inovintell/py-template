@@ -451,17 +451,17 @@ files = [
 
 [[package]]
 name = "dlint"
-version = "0.13.0"
+version = "0.14.0"
 description = "Dlint is a tool for encouraging best coding practices and helping ensure Python code is secure."
 category = "main"
 optional = true
 python-versions = "*"
 files = [
-    {file = "dlint-0.13.0-py3-none-any.whl", hash = "sha256:72094f35711a338eed4b8f95cbbaade5ec1d784bec516933bdbc2863676c4298"},
+    {file = "dlint-0.14.0-py3-none-any.whl", hash = "sha256:3b40e353a2fdb531253973bb53be51d2218ccd97647e14754ddd20fc1ce62a38"},
 ]
 
 [package.dependencies]
-flake8 = ">=3.6.0,<6.0.0"
+flake8 = ">=3.6.0"
 
 [[package]]
 name = "docformatter"
@@ -2846,4 +2846,4 @@ tests = ["pytest", "pytest-cov", "pytest-xdist", "pytest-html", "pytest-pretty-t
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.8, <3.11"
-content-hash = "501d74beb6be572fe471b924fd3677e1ace1534a34d7478a1eec2e749f2e777e"
+content-hash = "c57467a83f32ddba49cfb56b5f0ce7f1dab9d2300bc78e6705724dbf1cd32f65"
