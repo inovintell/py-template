@@ -5,6 +5,7 @@ repos:
   - repo: local
     hooks:
       - id: poetry-check
+        verbose: true
         name: Poetry Check
         entry: poetry check
         pass_filenames: false
@@ -13,6 +14,7 @@ repos:
           - commit
         always_run: true
       - id: poetry-lock
+        verbose: true
         name: Poetry Lock
         entry: poetry lock
         pass_filenames: false
@@ -21,6 +23,7 @@ repos:
           - commit
         always_run: true
       - id: yaml-linter
+        verbose: true
         name: YAML Linter
         entry: poetry run yamllint
         language: system
@@ -29,6 +32,7 @@ repos:
         types:
           - yaml
       - id: python-autoflake
+        verbose: true
         name: Python Autoflake Fixer
         entry: poetry run autoflake --recursive --in-place .
         language: system
@@ -37,6 +41,7 @@ repos:
         types:
           - python
       - id: python-isort
+        verbose: true
         name: Python Isort Fixer
         entry: poetry run isort .
         language: system
@@ -45,6 +50,7 @@ repos:
         types:
           - python
       - id: python-tryceratops
+        verbose: true
         name: Python Tryceratops Fixer
         entry: poetry run tryceratops --autofix .
         language: system
@@ -54,6 +60,7 @@ repos:
           - python
         require_serial: true
       - id: python-docformatter
+        verbose: true
         name: Python Docformatter Fixer
         entry: poetry run docformatter --recursive --in-place .
         language: system
@@ -62,6 +69,7 @@ repos:
         types:
           - python
       - id: python-black
+        verbose: true
         name: Python Black Fixer
         entry: poetry run black .
         language: system
@@ -70,6 +78,7 @@ repos:
         types:
           - python
       - id: python-interrogate
+        verbose: true
         name: Python Docstrings Coverage
         entry: poetry run interrogate -c pyproject.toml .
         pass_filenames: false
@@ -79,6 +88,7 @@ repos:
         types:
           - python
       - id: python-flake
+        verbose: true
         name: Python Flake Linter
         entry: poetry run flakeheaven lint .
         language: system
@@ -87,6 +97,7 @@ repos:
         types:
           - python
       - id: python-pytype
+        verbose: true
         name: Python Static Type Checker
         entry: poetry run pytype .
         language: system
@@ -106,6 +117,7 @@ repos:
     rev: v9.3.0
     hooks:
       - id: commitlint
+        verbose: true
         name: Commit Linter
         additional_dependencies:
           - "@commitlint/config-conventional"

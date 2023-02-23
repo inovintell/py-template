@@ -7,7 +7,6 @@ __Please note:__
 
 - This file might need to be edited to fit your needs.
 - This file might need refactoring.
-
 """
 
 from pathlib import Path
