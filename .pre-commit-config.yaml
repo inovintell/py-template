@@ -40,15 +40,6 @@ repos:
           - commit
         types:
           - python
-      - id: python-isort
-        verbose: true
-        name: Python Isort Fixer
-        entry: poetry run isort .
-        language: system
-        stages:
-          - commit
-        types:
-          - python
       - id: python-tryceratops
         verbose: true
         name: Python Tryceratops Fixer
@@ -87,10 +78,10 @@ repos:
           - commit
         types:
           - python
-      - id: python-flake
+      - id: python-ruff
         verbose: true
-        name: Python Flake Linter
-        entry: poetry run flakeheaven lint .
+        name: Python Ruff Linter
+        entry: poetry run ruff check --fix
         language: system
         stages:
           - commit
