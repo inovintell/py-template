@@ -38,55 +38,23 @@ jobs:
       - name: Setup Dependencies
         uses: ./.github/actions/setup-poetry
       - name: Run Poetry check
-        run: >
-          poetry run pre-commit run
-          --from-ref origin/${{ github.base_ref }} --to-ref HEAD
-          poetry-check
+        run: poetry check
       - name: Run YAML linter
-        run: >
-          poetry run pre-commit run
-          --from-ref origin/${{ github.base_ref }} --to-ref HEAD
-          yaml-linter
+        run: poetry run yamllint
       - name: Run Python autoflake
-        run: >
-          poetry run pre-commit run
-          --from-ref origin/${{ github.base_ref }} --to-ref HEAD
-          python-autoflake
-      - name: Run Python isort
-        run: >
-          poetry run pre-commit run
-          --from-ref origin/${{ github.base_ref }} --to-ref HEAD
-          python-isort
+        run: poetry run autoflake --recursive --check .
       - name: Run Python tryceratops
-        run: >
-          poetry run pre-commit run
-          --from-ref origin/${{ github.base_ref }} --to-ref HEAD
-          python-tryceratops
+        run: poetry run tryceratops .
       - name: Run Python docformatter
-        run: >
-          poetry run pre-commit run
-          --from-ref origin/${{ github.base_ref }} --to-ref HEAD
-          python-docformatter
+        run: poetry run docformatter --recursive --check .
       - name: Run Python black
-        run: >
-          poetry run pre-commit run
-          --from-ref origin/${{ github.base_ref }} --to-ref HEAD
-          python-black
+        run: poetry run black --check .
       - name: Run Python interrogate
-        run: >
-          poetry run pre-commit run
-          --from-ref origin/${{ github.base_ref }} --to-ref HEAD
-          python-interrogate
-      - name: Run Python flake
-        run: >
-          poetry run pre-commit run
-          --from-ref origin/${{ github.base_ref }} --to-ref HEAD
-          python-flake
+        run: poetry run interrogate -c pyproject.toml .
+      - name: Run Python ruff
+        run: poetry run ruff --no-fix --format github
       - name: Run Python pytype
-        run: >
-          poetry run pre-commit run
-          --from-ref origin/${{ github.base_ref }} --to-ref HEAD
-          python-pytype
+        run: poetry run pytype .
       - name: Run reporters
         run: |
           echo "# Code condition report" >> $GITHUB_STEP_SUMMARY
