@@ -169,7 +169,7 @@ select = [
   "N",
   "D",
   "UP",
-  "YYT",
+  "YTT",
   "ANN",
   "S",
   "BLE",
@@ -202,9 +202,6 @@ ignore = [
   "ANN101",
   "ANN102",
   "ANN401",
-  "W503",
-  "E203",
-  "CFQ003",
 ]
 
 line-length = 88
