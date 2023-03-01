@@ -8,6 +8,10 @@ inputs:
       Version range or exact version of a Python version to use, using SemVer's version range syntax.
     required: false
     default: 3.x
+  flags:
+    description: >
+      Additional flags to provide for poetry install (e.g. --only tests)
+    default: ""
 
 outputs:
   python-version:
@@ -61,4 +65,4 @@ runs:
       # If we missed poetry cache install dependencies
       if: steps.setup-python.outputs.cache-hit != 'true'
       shell: bash
-      run: poetry install --all-extras
+      run: poetry install --all-extras ${{ inputs.flags }}
