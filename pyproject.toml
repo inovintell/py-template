@@ -23,137 +23,54 @@ readme = "README.md"
 ###############################################################################
 
 [tool.poetry.dependencies]
-# Current workaround due to pytype not supporting Python 3.11
-python=">=3.8, <3.11"
+python=">=3.8, <4.0"
 
 # A list of all of the optional dependencies, some of which are included in the
 # below `extras`. They can be opted in by apps.
 
-###############################################################################
-#
-#                                 TESTS
-#
-###############################################################################
-pytest = { version = "^7.2.0", optional = true}
-pytest-cov = { version = "^4.0.0", optional = true}
-pytest-xdist = { version = "^3.0", optional = true}
-pytest-html = { version = "^3.1.1", optional = true}
-pytest-pretty-terminal = { version = "^1.1.0", optional = true}
+[tool.poetry.group.test.dependencies]
+pytest = { version = "^7.2.0" }
+pytest-cov = { version = "^4.0.0" }
+pytest-xdist = { version = "^3.0" }
+pytest-html = { version = "^3.1.1" }
+pytest-pretty-terminal = { version = "^1.1.0" }
+
+[tool.poetry.group.fix.dependencies]
+black = { version = "^23.0.0" }
+autoflake = { version = "^1.7.7" }
+docformatter = { version = "^1.5.0", extras=["tomli"] }
+tryceratops = { version = "^1.1.0" }
+
+[tool.poetry.group.lint.dependencies]
+ruff = { version = "^0.0.253" }
+pytype = { version = "^2023.0.0", python = "<=3.10" }
+yamllint = { version = "^1.28.0" }
+
+[tool.poetry.group.report.dependencies]
+radon = { version = "^5.1.0" }
+vulture = { version = "^2.6" }
+cohesion = { version = "^1.0.0" }
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = { version = "^1.3.0" }
+mkdocs-material = { version = "^9.0.0" }
+mkdocstrings = { version = "^0.20.0" }
+mkdocstrings-python = { version = "^0.8.0" }
+mkdocs-literate-nav = { version = "^0.6.0" }
+mkdocs-section-index = { version = "^0.3.4" }
+mkdocs-gen-files = { version = "^0.4.0" }
+mkdocs-minify-plugin = { version = "^0.6.0" }
+interrogate = { version = "^1.5.0" }
+
+[tool.poetry.group.release.dependencies]
+python-semantic-release = { version = "^7.28.1" }
+
+[tool.poetry.group.hooks.dependencies]
+pre-commit = { version = "^3.0.0" }
 
 ###############################################################################
 #
-#                                 FIXERS
-#
-###############################################################################
-black = { version = "^23.0.0", optional = true }
-autoflake = { version = "^1.7.7", optional = true }
-docformatter = { version = "^1.5.0", optional = true, extras=["tomli"] }
-tryceratops = { version = "^1.1.0", optional = true }
-
-###############################################################################
-#
-#                                 LINTERS
-#
-###############################################################################
-# Linters
-ruff = { version = "^0.0.253", optional = true }
-# Static type checkers
-pytype = { version = "^2023.0.0", optional = true }
-# YAML
-yamllint = { version = "^1.28.0", optional = true }
-
-###############################################################################
-#
-#                                 REPORTERS
-#
-###############################################################################
-radon = { version = "^5.1.0", optional = true }
-vulture = { version = "^2.6", optional = true }
-cohesion = { version = "^1.0.0", optional = true }
-
-###############################################################################
-#
-#                                   DOCS
-#
-###############################################################################
-mkdocs = { version = "^1.3.0", optional = true }
-mkdocs-material = { version = "^9.0.0", optional = true }
-mkdocstrings = { version = "^0.20.0", optional = true }
-mkdocstrings-python = { version = "^0.8.0", optional = true }
-mkdocs-literate-nav = { version = "^0.6.0", optional = true }
-mkdocs-section-index = { version = "^0.3.4", optional = true }
-mkdocs-gen-files = { version = "^0.4.0", optional = true }
-mkdocs-minify-plugin = { version = "^0.6.0", optional = true }
-interrogate = { version = "^1.5.0", optional = true }
-
-###############################################################################
-#
-#                                 RELEASE
-#
-###############################################################################
-python-semantic-release = { version = "^7.28.1", optional = true }
-
-###############################################################################
-#
-#                                  COMMIT
-#
-###############################################################################
-pre-commit = { version = "^3.0.0", optional = true }
-
-[tool.poetry.extras]
-tests = [
-  "pytest",
-  "pytest-cov",
-  "pytest-xdist",
-  "pytest-html",
-  "pytest-pretty-terminal",
-]
-
-fixers = [
-  "black",
-  "autoflake",
-  "docformatter",
-  "tryceratops",
-]
-
-linters = [
-  # Linters
-  "ruff",
-  # Static checker
-  "pytype",
-  # YAML
-  "yamllint",
-]
-
-reporters = [
-  "radon",
-  "vulture",
-  "cohesion",
-]
-
-docs = [
-  "mkdocs",
-  "mkdocs-material",
-  "mkdocstrings",
-  "mkdocstrings-python",
-  "mkdocs-literate-nav",
-  "mkdocs-section-index",
-  "mkdocs-gen-files",
-  "mkdocs-minify-plugin",
-  "interrogate",
-]
-
-release = [
-  "python-semantic-release",
-]
-
-commit = [
-  "pre-commit",
-]
-
-###############################################################################
-#
-#                               FIXERS SETTINGS
+#                                FIX SETTINGS
 #
 ###############################################################################
 
@@ -209,11 +126,11 @@ format = "grouped"
 
 show-fixes = true
 show-source = true
-src = ["src", "tests"]
+src = ["src", "test"]
 
 [tool.ruff.per-file-ignores]
 "__init__.py" = ["F401"]
-"tests/**" = ["S101"]
+"test/**" = ["S101"]
 
 [tool.ruff.flake8-annotations]
 suppress-dummy-args = true
@@ -239,7 +156,7 @@ wrap-descriptions = 79
 
 ###############################################################################
 #
-#                               REPORTERS SETTINGS
+#                               REPORT SETTINGS
 #
 ###############################################################################
 
@@ -258,7 +175,7 @@ relative_files = true
 
 ###############################################################################
 #
-#                                 DOCS COVERAGE
+#                             DOCS COVERAGE SETTINGS
 #
 ###############################################################################
 
@@ -268,13 +185,13 @@ fail-under = 100
 exclude = [
   "docs",
   "build",
-  "tests",
+  "test",
   "src/{{cookiecutter.repository}}/_version.py",
 ]
 
 ###############################################################################
 #
-#                               SEMANTIC RELEASE
+#                               RELEASE SETTINGS
 #
 ###############################################################################
 

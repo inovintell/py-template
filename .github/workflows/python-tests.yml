@@ -22,6 +22,7 @@ jobs:
       fail-fast: true
       matrix:
         py:
+          - '3.11'
           - '3.10'
           - '3.9'
           - '3.8'
@@ -48,6 +49,7 @@ jobs:
         uses: ./.github/actions/setup-poetry
         with:
           python-version: ${{ matrix.py }}
+          flags: --only test
       - name: Run Python tests
         uses: ./.github/actions/python-test
         with:

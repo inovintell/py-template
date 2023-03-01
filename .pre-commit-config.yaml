@@ -98,7 +98,7 @@ repos:
           - python
       - id: python-tests
         name: Python Tests
-        entry: poetry run pytest -n auto --pretty tests
+        entry: poetry run pytest -n auto --pretty test
         language: system
         stages:
           - commit
