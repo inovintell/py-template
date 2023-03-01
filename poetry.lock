@@ -2370,5 +2370,5 @@ tests = ["pytest", "pytest-cov", "pytest-xdist", "pytest-html", "pytest-pretty-t
 
 [metadata]
 lock-version = "2.0"
-python-versions = ">=3.8, <3.11"
-content-hash = "c59d80e5798c84b76d8b574637c1b95475183352edc671b41fac2b1da13ce9a5"
+python-versions = ">=3.8, <4.0"
+content-hash = "28dee03626f70da570860a59b45eeeef65a95aa708c1df8b23095fed5c9465aa"
