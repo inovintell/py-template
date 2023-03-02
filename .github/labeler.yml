@@ -17,7 +17,7 @@ docs:
   - CODE_OF_CONDUCT.md
   - docs/**/*
   - mkdocs.yml
-tests:
-  - tests/**/*
+test:
+  - test/**/*
 src:
   - src/**/*
