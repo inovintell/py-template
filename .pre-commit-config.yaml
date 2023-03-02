@@ -97,6 +97,7 @@ repos:
         types:
           - python
       - id: python-tests
+        verbose: true
         name: Python Tests
         entry: poetry run pytest -n auto --pretty test
         language: system
