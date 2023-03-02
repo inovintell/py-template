@@ -36,7 +36,7 @@ runs:
     - name: Run PR test suite
       shell: bash
       run: >
-        poetry run pytest -n auto --pretty --cov=test
+        poetry run pytest -n auto --pretty --cov=src
         --html=.report.html --self-contained-html test
     - name: Upload coverage data
       if: inputs.upload-coverage
