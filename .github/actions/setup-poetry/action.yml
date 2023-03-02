@@ -9,14 +9,24 @@ inputs:
     required: false
     default: 3.x
   flags:
-    description: >
-      Additional flags to provide for poetry install (e.g. --only tests)
+    description: Additional flags to provide for poetry install (e.g. --only tests)
+    required: false
+    default: ""
+  key:
+    description: Additional key used for caching pipx (useful when choosing --only)
+    required: false
     default: ""
 
 outputs:
   python-version:
     description: The installed python version. Useful when given a version range as input.
     value: ${{ steps.setup-python.outputs.python-version }}
+  flag:
+    description: Additional flags to provide for poetry install (e.g. --only tests)
+    value: ${{ steps.setup-python.outputs.flags }}
+  key:
+    description: Additional key used for caching pipx (useful when choosing --only)
+    value: ${{ steps.setup-python.outputs.key }}
   cache-hit:
     description: A boolean value to indicate projects dependencies were cached
     value: ${{ steps.setup-python.outputs.cache-hit }}
@@ -45,8 +55,8 @@ runs:
           ${{ steps.pipx-env-vars.outputs.pipx-home }}/venvs/poetry
           ${{ steps.pipx-env-vars.outputs.pipx-bin-dir }}/poetry
         key: >-
-          ${{ runner.os }}-${{ inputs.python-version }}
-          ${{ inputs.flags }}-pipx-${{ hashFiles('**/poetry.lock') }}
+          ${{ runner.os }}-${{ inputs.python-version }}-
+          ${{ inputs.key }}-pipx-${{ hashFiles('**/poetry.lock') }}
     - name: Install poetry
       # If env vars are not defined or we missed pipx cache, install poetry
       if: >

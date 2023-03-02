@@ -50,6 +50,7 @@ jobs:
         with:
           python-version: ${{ matrix.py }}
           flags: --only test,main
+          key: test
       - name: Run Python tests
         uses: ./.github/actions/python-test
         with:
