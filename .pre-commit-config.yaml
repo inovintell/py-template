@@ -34,7 +34,7 @@ repos:
       - id: python-autoflake
         verbose: true
         name: Python Autoflake Fixer
-        entry: poetry run autoflake --recursive --in-place .
+        entry: poetry run autoflake --in-place
         language: system
         stages:
           - commit
@@ -43,7 +43,7 @@ repos:
       - id: python-tryceratops
         verbose: true
         name: Python Tryceratops Fixer
-        entry: poetry run tryceratops --autofix .
+        entry: poetry run tryceratops --autofix
         language: system
         stages:
           - commit
@@ -53,7 +53,7 @@ repos:
       - id: python-docformatter
         verbose: true
         name: Python Docformatter Fixer
-        entry: poetry run docformatter --recursive --in-place .
+        entry: poetry run docformatter --recursive --in-place
         language: system
         stages:
           - commit
@@ -62,7 +62,7 @@ repos:
       - id: python-black
         verbose: true
         name: Python Black Fixer
-        entry: poetry run black .
+        entry: poetry run black
         language: system
         stages:
           - commit
@@ -71,8 +71,7 @@ repos:
       - id: python-interrogate
         verbose: true
         name: Python Docstrings Coverage
-        entry: poetry run interrogate -c pyproject.toml .
-        pass_filenames: false
+        entry: poetry run interrogate -c pyproject.toml
         language: system
         stages:
           - commit
@@ -90,7 +89,7 @@ repos:
       - id: python-pytype
         verbose: true
         name: Python Static Type Checker
-        entry: poetry run pytype .
+        entry: poetry run pytype
         language: system
         stages:
           - commit
@@ -100,6 +99,7 @@ repos:
         verbose: true
         name: Python Tests
         entry: poetry run pytest -n auto --pretty test
+        pass_filenames: false
         language: system
         stages:
           - commit
