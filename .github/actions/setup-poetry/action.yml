@@ -44,7 +44,9 @@ runs:
         path: |
           ${{ steps.pipx-env-vars.outputs.pipx-home }}/venvs/poetry
           ${{ steps.pipx-env-vars.outputs.pipx-bin-dir }}/poetry
-        key: ${{ runner.os }}-${{ inputs.python-version }}-pipx-${{ hashFiles('**/poetry.lock') }}
+        key: >-
+          ${{ runner.os }}-${{ inputs.python-version }}
+          ${{ inputs.flags }}-pipx-${{ hashFiles('**/poetry.lock') }}
     - name: Install poetry
       # If env vars are not defined or we missed pipx cache, install poetry
       if: >
