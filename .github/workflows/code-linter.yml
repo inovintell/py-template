@@ -54,7 +54,7 @@ jobs:
       - name: Run Python interrogate
         run: poetry run interrogate -c pyproject.toml .
       - name: Run Python ruff
-        run: poetry run ruff --no-fix --format github
+        run: poetry run ruff --no-fix --format github .
       - name: Run Python pytype
         run: poetry run pytype .
       - name: Run reporters
