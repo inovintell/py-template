@@ -49,7 +49,7 @@ jobs:
         uses: ./.github/actions/setup-poetry
         with:
           python-version: ${{ matrix.py }}
-          flags: --only test
+          flags: --only test,main
       - name: Run Python tests
         uses: ./.github/actions/python-test
         with:
