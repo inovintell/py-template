@@ -252,13 +252,13 @@ click = "*"
 
 [[package]]
 name = "cohesion"
-version = "1.0.0"
+version = "1.1.0"
 description = "A tool for measuring Python class cohesion."
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "cohesion-1.0.0-py2.py3-none-any.whl", hash = "sha256:a33a526eb8922c7dbfef19257b3532d16e6246c4ece3ab3b492b290d9d3f2d4b"},
+    {file = "cohesion-1.1.0-py2.py3-none-any.whl", hash = "sha256:2ab1534d936428c61385e973c30cbd0381796401ad1083a5bf08562a9de9fee6"},
 ]
 
 [[package]]
