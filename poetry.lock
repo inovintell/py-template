@@ -577,14 +577,14 @@ colorama = ">=0.4"
 async = ["aiofiles (>=0.7,<1.0)"]
 
 [[package]]
-name = "htmlmin"
-version = "0.1.12"
+name = "htmlmin2"
+version = "0.1.13"
 description = "An HTML Minifier"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "htmlmin-0.1.12.tar.gz", hash = "sha256:50c1ef4630374a5d723900096a961cff426dff46b48f34d194a81bbe14eca178"},
+    {file = "htmlmin2-0.1.13-py3-none-any.whl", hash = "sha256:75609f2a42e64f7ce57dbff28a39890363bde9e7e5885db633317efbdf8c79a2"},
 ]
 
 [[package]]
@@ -1112,19 +1112,19 @@ files = [
 
 [[package]]
 name = "mkdocs-minify-plugin"
-version = "0.6.2"
+version = "0.6.4"
 description = "An MkDocs plugin to minify HTML, JS or CSS files prior to being written to disk"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "mkdocs-minify-plugin-0.6.2.tar.gz", hash = "sha256:679f6e430bf49845649d0a1f183e36be3a0da5fdc60fee5fdab4356db0a18e2c"},
-    {file = "mkdocs_minify_plugin-0.6.2-py3-none-any.whl", hash = "sha256:b9f43751f515372b766f1e9e77422fd1c9acfaf8c2bf018ff461fd97476e05e3"},
+    {file = "mkdocs-minify-plugin-0.6.4.tar.gz", hash = "sha256:1906e9687c39ded7d1ca959c76c6e52da6a8d0765e3981ad9812d3a489f1ecdb"},
+    {file = "mkdocs_minify_plugin-0.6.4-py3-none-any.whl", hash = "sha256:c0221053968a68418245228e04b0d5bc7e6b1a1940db721a52c7ec98d898242e"},
 ]
 
 [package.dependencies]
 csscompressor = ">=0.9.5"
-htmlmin = ">=0.1.12"
+htmlmin2 = ">=0.1.13"
 jsmin = ">=3.0.1"
 mkdocs = ">=1.4.1"
 
