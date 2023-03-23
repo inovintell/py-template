@@ -98,7 +98,9 @@ repos:
       - id: python-tests
         verbose: true
         name: Python Tests
-        entry: poetry run pytest -n auto --pretty test
+        entry: >
+          poetry run pytest -n auto --pretty --cov=src
+          --cov-fail-under=100 --cov-report=term-missing test
         pass_filenames: false
         language: system
         stages:
