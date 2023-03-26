@@ -47,7 +47,7 @@ pytype = { version = "^2023.0.0", python = ">=3.8,<3.11" }
 yamllint = { version = "^1.28.0" }
 
 [tool.poetry.group.report.dependencies]
-radon = { version = "^5.1.0" }
+radon = { version = "^6.0.0" }
 vulture = { version = "^2.6" }
 cohesion = { version = "^1.0.0" }
 

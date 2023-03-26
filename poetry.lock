@@ -496,17 +496,6 @@ docs = ["furo (>=2022.12.7)", "sphinx (>=6.1.3)", "sphinx-autodoc-typehints (>=1
 testing = ["covdefaults (>=2.3)", "coverage (>=7.2.2)", "pytest (>=7.2.2)", "pytest-cov (>=4)", "pytest-timeout (>=2.1)"]
 
 [[package]]
-name = "future"
-version = "0.18.3"
-description = "Clean single-source support for Python 3 and 2"
-category = "dev"
-optional = false
-python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
-files = [
-    {file = "future-0.18.3.tar.gz", hash = "sha256:34a17436ed1e96697a86f9de3d15a3b0be01d8bc8de9c1dffd59fb8234ed5307"},
-]
-
-[[package]]
 name = "ghp-import"
 version = "2.1.0"
 description = "Copy your docs directly to the gh-pages branch."
@@ -1730,20 +1719,22 @@ pyyaml = "*"
 
 [[package]]
 name = "radon"
-version = "5.1.0"
+version = "6.0.0"
 description = "Code Metrics in Python"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "radon-5.1.0-py2.py3-none-any.whl", hash = "sha256:fa74e018197f1fcb54578af0f675d8b8e2342bd8e0b72bef8197bc4c9e645f36"},
-    {file = "radon-5.1.0.tar.gz", hash = "sha256:cb1d8752e5f862fb9e20d82b5f758cbc4fb1237c92c9a66450ea0ea7bf29aeee"},
+    {file = "radon-6.0.0-py2.py3-none-any.whl", hash = "sha256:7f6eb0b1cb49b2669e5691504357a1d70a3d420bc85bcceeca65d0bd79f465ca"},
+    {file = "radon-6.0.0.tar.gz", hash = "sha256:919f770536d585b4c1b8a70e8b666c3f847795c5ed8bb1702c6e5dcf6e3fc158"},
 ]
 
 [package.dependencies]
 colorama = {version = ">=0.4.1", markers = "python_version > \"3.4\""}
-future = "*"
-mando = ">=0.6,<0.7"
+mando = ">=0.6,<0.8"
+
+[package.extras]
+toml = ["tomli (>=2.0.1)"]
 
 [[package]]
 name = "readme-renderer"
@@ -2309,4 +2300,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9, <4.0"
-content-hash = "ae185019e25447d2b9355a1767774887e987e710c731aed3303eeca8699a5716"
+content-hash = "b549aa52759bffccf9a98e4e1e5b04a5055eaeda81e4659a69d0eff718d198fa"
