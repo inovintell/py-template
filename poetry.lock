@@ -1719,14 +1719,14 @@ pyyaml = "*"
 
 [[package]]
 name = "radon"
-version = "6.0.0"
+version = "6.0.1"
 description = "Code Metrics in Python"
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "radon-6.0.0-py2.py3-none-any.whl", hash = "sha256:7f6eb0b1cb49b2669e5691504357a1d70a3d420bc85bcceeca65d0bd79f465ca"},
-    {file = "radon-6.0.0.tar.gz", hash = "sha256:919f770536d585b4c1b8a70e8b666c3f847795c5ed8bb1702c6e5dcf6e3fc158"},
+    {file = "radon-6.0.1-py2.py3-none-any.whl", hash = "sha256:632cc032364a6f8bb1010a2f6a12d0f14bc7e5ede76585ef29dc0cecf4cd8859"},
+    {file = "radon-6.0.1.tar.gz", hash = "sha256:d1ac0053943a893878940fedc8b19ace70386fc9c9bf0a09229a44125ebf45b5"},
 ]
 
 [package.dependencies]
