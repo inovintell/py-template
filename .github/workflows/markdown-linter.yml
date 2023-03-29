@@ -29,6 +29,6 @@ jobs:
         with:
           fetch-depth: 0
       - name: Run markdownlint
-        uses: nosborn/github-action-markdown-cli@5cfe13755d7cdc2d0d01b69c7900cfd3fa37f4a4 # tag=v3.2.0
+        uses: nosborn/github-action-markdown-cli@9b5e871c11cc0649c5ac2526af22e23525fa344d # v3.3.0
         with:
           files: .
