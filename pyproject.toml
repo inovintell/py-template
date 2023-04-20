@@ -42,7 +42,7 @@ docformatter = { version = "^1.5.0", extras=["tomli"] }
 tryceratops = { version = "^1.1.0" }
 
 [tool.poetry.group.lint.dependencies]
-ruff = { version = "^0.0.261" }
+ruff = { version = "^0.0.262" }
 pytype = { version = "^2023.0.0", python = ">=3.8,<3.11" }
 yamllint = { version = "^1.28.0" }
 
