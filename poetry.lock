@@ -477,14 +477,14 @@ files = [
 
 [[package]]
 name = "docformatter"
-version = "1.6.0"
+version = "1.6.1"
 description = "Formats docstrings to follow PEP 257"
 category = "dev"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "docformatter-1.6.0-py3-none-any.whl", hash = "sha256:dfad58437b560708eb74ccaccba5c91a0f98f534ed51b7af02aa35225e9eb6c2"},
-    {file = "docformatter-1.6.0.tar.gz", hash = "sha256:2346dcc239b73bc4b62d1035e240d1338d154fb047a7e492f0168a93744222e2"},
+    {file = "docformatter-1.6.1-py3-none-any.whl", hash = "sha256:4bd6ce2380a1cc0aef73e9da712b974d0221258e271d4e4e820535a7cdbae889"},
+    {file = "docformatter-1.6.1.tar.gz", hash = "sha256:8ec562f0c0ab81cb0716472efc8216b15707748f09ef16d09189c1a7b9012525"},
 ]
 
 [package.dependencies]
