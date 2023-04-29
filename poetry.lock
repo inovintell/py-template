@@ -2137,14 +2137,14 @@ telegram = ["requests"]
 
 [[package]]
 name = "tryceratops"
-version = "1.1.0"
-description = "A linter to manage your exception like a PRO!"
+version = "1.2.0"
+description = "Prevent Exception Handling AntiPatterns"
 category = "dev"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "tryceratops-1.1.0-py3-none-any.whl", hash = "sha256:f4770960782a2ae87cad7a7fd1206476468d0f41383c9fd7a49c6d537534015e"},
-    {file = "tryceratops-1.1.0.tar.gz", hash = "sha256:58e56b33eeb7a9cfd643957069bb1872ebe26c1eeac7abb1877c9535b7e473db"},
+    {file = "tryceratops-1.2.0-py3-none-any.whl", hash = "sha256:2a994d7027dbb7080f629357d99328d42e6a83fe581d7dae5826c1de9858a571"},
+    {file = "tryceratops-1.2.0.tar.gz", hash = "sha256:7ab89c512e1f0c5b04479e895601527d10ba9aa04f0863f143bde95c5532f75e"},
 ]
 
 [package.dependencies]
