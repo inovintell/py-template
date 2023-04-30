@@ -2137,14 +2137,14 @@ telegram = ["requests"]
 
 [[package]]
 name = "tryceratops"
-version = "1.2.0"
+version = "2.0.0"
 description = "Prevent Exception Handling AntiPatterns"
 category = "dev"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "tryceratops-1.2.0-py3-none-any.whl", hash = "sha256:2a994d7027dbb7080f629357d99328d42e6a83fe581d7dae5826c1de9858a571"},
-    {file = "tryceratops-1.2.0.tar.gz", hash = "sha256:7ab89c512e1f0c5b04479e895601527d10ba9aa04f0863f143bde95c5532f75e"},
+    {file = "tryceratops-2.0.0-py3-none-any.whl", hash = "sha256:352572e3a08a8138eb9eba14cafb74a54d4dd7c4ccc47b873f200039fc6f5aa9"},
+    {file = "tryceratops-2.0.0.tar.gz", hash = "sha256:c549f3a6d4d1917280e8896878d55d59a26046e17b3d5a65ef2b537af61bcbc3"},
 ]
 
 [package.dependencies]
@@ -2373,4 +2373,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9, <4.0"
-content-hash = "2961808c2e626f1071bf8a91948026e0251c883e6f8769a6bf7a43ea08679017"
+content-hash = "db3611cf3af78dc260b8dd1707c94c2461cd978a8f1380379d1a026c95b26be9"
