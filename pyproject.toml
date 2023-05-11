@@ -55,7 +55,7 @@ cohesion = { version = "^1.0.0" }
 mkdocs = { version = "^1.3.0" }
 mkdocs-material = { version = "^9.0.0" }
 mkdocstrings = { version = "^0.21.0" }
-mkdocstrings-python = { version = "^0.10.0" }
+mkdocstrings-python = { version = "^1.0.0" }
 mkdocs-literate-nav = { version = "^0.6.0" }
 mkdocs-section-index = { version = "^0.3.4" }
 mkdocs-gen-files = { version = "^0.5.0" }
