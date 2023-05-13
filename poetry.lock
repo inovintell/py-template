@@ -2137,14 +2137,14 @@ telegram = ["requests"]
 
 [[package]]
 name = "tryceratops"
-version = "2.0.0"
+version = "2.1.0"
 description = "Prevent Exception Handling AntiPatterns"
 category = "dev"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "tryceratops-2.0.0-py3-none-any.whl", hash = "sha256:352572e3a08a8138eb9eba14cafb74a54d4dd7c4ccc47b873f200039fc6f5aa9"},
-    {file = "tryceratops-2.0.0.tar.gz", hash = "sha256:c549f3a6d4d1917280e8896878d55d59a26046e17b3d5a65ef2b537af61bcbc3"},
+    {file = "tryceratops-2.1.0-py3-none-any.whl", hash = "sha256:5546988f689d3488e6dbe2813b54b07ad6abaebc7d18932d153939d71857ec85"},
+    {file = "tryceratops-2.1.0.tar.gz", hash = "sha256:6d6a5b4ca69666c59c68a30fab898d540f91c64c2a8a385d2ea1ac9354893ad8"},
 ]
 
 [package.dependencies]
