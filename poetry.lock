@@ -2137,20 +2137,21 @@ telegram = ["requests"]
 
 [[package]]
 name = "tryceratops"
-version = "2.1.1"
+version = "2.3.1"
 description = "Prevent Exception Handling AntiPatterns"
 category = "dev"
 optional = false
-python-versions = ">=3.8,<4.0"
+python-versions = ">=3.8.1,<4.0"
 files = [
-    {file = "tryceratops-2.1.1-py3-none-any.whl", hash = "sha256:b53392248d95d49213cd0a2c17ec1c947ca8c6c80cceeb3f07f1b9ca07986cb2"},
-    {file = "tryceratops-2.1.1.tar.gz", hash = "sha256:9f72e363f6f4c19809d586436d052cf744800120756fed4ea0ac9d6739b8e85a"},
+    {file = "tryceratops-2.3.1-py3-none-any.whl", hash = "sha256:7ddf99e608b91370344594e88a5bef3a2c4d3e068f5cdfc0a420838d3bd27383"},
+    {file = "tryceratops-2.3.1.tar.gz", hash = "sha256:e52a382969d88012f2cbd7c2ad066377cd9c240b046cf04b232886e1181a15d2"},
 ]
 
 [package.dependencies]
 click = ">=7"
 rich = ">=10.14.0"
 toml = ">=0.10.2"
+typing-extensions = {version = ">=4.5.0", markers = "python_version < \"3.10\""}
 
 [[package]]
 name = "twine"
