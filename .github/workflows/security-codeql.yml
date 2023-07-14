@@ -30,7 +30,7 @@ jobs:
       - name: Setup Dependencies
         uses: ./.github/actions/setup-poetry
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@46ed16ded91731b2df79a2893d3aea8e9f03b5c4 # v2.20.3
+        uses: github/codeql-action/init@489225d82a57396c6f426a40e66d461b16b3461d # v2.20.4
         with:
           languages: python
           setup-python-dependencies: false
