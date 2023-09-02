@@ -32,7 +32,7 @@ python=">=3.9, <4.0"
 pytest = { version = "^7.2.0" }
 pytest-cov = { version = "^4.0.0" }
 pytest-xdist = { version = "^3.0" }
-pytest-html = { version = "^3.1.1" }
+pytest-html = { version = "^4.0.0" }
 pytest-pretty-terminal = { version = "^1.1.0" }
 
 [tool.poetry.group.fix.dependencies]
