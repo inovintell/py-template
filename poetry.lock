@@ -1205,14 +1205,14 @@ files = [
 
 [[package]]
 name = "pycnite"
-version = "2023.9.18"
+version = "2023.10.11"
 description = "Python bytecode utilities"
 category = "dev"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "pycnite-2023.9.18-py3-none-any.whl", hash = "sha256:26cc0cdda12ca6c6879a5d7e0dd332720f7f9fc9e6a74c02d00dcb7d71bdfa9f"},
-    {file = "pycnite-2023.9.18.tar.gz", hash = "sha256:c353d369b15f5d635d10d32d200ea75d73f1ca54395be9c2e327c09cfeb27b68"},
+    {file = "pycnite-2023.10.11-py3-none-any.whl", hash = "sha256:7d02eb0ec4b405d8812ce053434dacfc2335dcd458ab58a1a8bf64f72d40bd76"},
+    {file = "pycnite-2023.10.11.tar.gz", hash = "sha256:ad8616982beecc39f2090999aa8fe0b044b1f6733ec39484cb5e0900b3c88aa1"},
 ]
 
 [[package]]
@@ -1615,22 +1615,13 @@ test = ["coverage[toml] (>=6,<8)", "pytest (>=7,<8)", "pytest-clarity (>=1.0.1)"
 
 [[package]]
 name = "pytype"
-version = "2023.10.5"
+version = "2023.10.17"
 description = "Python type inferencer"
 category = "dev"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "pytype-2023.10.5-cp310-cp310-macosx_11_0_x86_64.whl", hash = "sha256:6e2a056290985b1c7522da1538dedd3f74a2cd079a901996c9dfdf5de3749825"},
-    {file = "pytype-2023.10.5-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:6d2edfcc738798eae4e96d3fa5426278fa05869e94b1adbc4409bf7c7b4c12a5"},
-    {file = "pytype-2023.10.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:2eacd18c52ea508c1d09e4bec15676a2350051b5e15baf032f1b80c4f8695550"},
-    {file = "pytype-2023.10.5-cp38-cp38-macosx_11_0_x86_64.whl", hash = "sha256:947a186947c308cf473cf1c17ba7aeedd57e1721d5ede401854d8d48a273ef6b"},
-    {file = "pytype-2023.10.5-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:89515d7c32343b6e4ee6811b003d6d368efee3b019d06eeb8f777f595b65b488"},
-    {file = "pytype-2023.10.5-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:d19404ee2ef6db0cd5bc154d007e88249e4dd43c3d91d1c518f50ea7b9d5baaa"},
-    {file = "pytype-2023.10.5-cp39-cp39-macosx_11_0_x86_64.whl", hash = "sha256:0539a7fa575cc1098bb449fb191be96728121940c7ae0079fe0dcfdf148ac3b9"},
-    {file = "pytype-2023.10.5-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:951055eb8d61d431ff49b3b23e0dee6bf625371edf1d00712bd5475c53bdf8fc"},
-    {file = "pytype-2023.10.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:6b629c3197a3fe5e06cc1cd0965ab316ece874f0064a16f6b993b05556716264"},
-    {file = "pytype-2023.10.5.tar.gz", hash = "sha256:d465ac20807727c6a430bcf72ffc2ed2b6f37c220d3965d8d466042fe25bc1ca"},
+    {file = "pytype-2023.10.17.tar.gz", hash = "sha256:e94151428769bccd2410b7407edd84fb383c1bbe26f4925906d214a4c3853ca7"},
 ]
 
 [package.dependencies]
@@ -1640,7 +1631,7 @@ jinja2 = ">=3.1.2"
 libcst = ">=1.0.1"
 networkx = "<3.2"
 ninja = ">=1.10.0.post2"
-pycnite = ">=2023.9.14"
+pycnite = ">=2023.10.11"
 pydot = ">=1.4.2"
 tabulate = ">=0.8.10"
 toml = ">=0.10.2"
