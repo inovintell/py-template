@@ -123,7 +123,7 @@ ignore = [
 ]
 
 line-length = 79
-format = "grouped"
+output-format = "grouped"
 
 show-fixes = true
 show-source = true
