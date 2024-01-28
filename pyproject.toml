@@ -29,7 +29,7 @@ python=">=3.9, <4.0"
 # below `extras`. They can be opted in by apps.
 
 [tool.poetry.group.test.dependencies]
-pytest = { version = "^7.2.0" }
+pytest = { version = "^8.0.0" }
 pytest-cov = { version = "^4.0.0" }
 pytest-xdist = { version = "^3.0" }
 pytest-html = { version = "^4.0.0" }
