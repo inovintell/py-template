@@ -630,13 +630,13 @@ files = [
 
 [[package]]
 name = "interrogate"
-version = "1.5.0"
+version = "1.6.0"
 description = "Interrogate a codebase for docstring coverage."
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.8"
 files = [
-    {file = "interrogate-1.5.0-py3-none-any.whl", hash = "sha256:a4ccc5cbd727c74acc98dee6f5e79ef264c0bcfa66b68d4e123069b2af89091a"},
-    {file = "interrogate-1.5.0.tar.gz", hash = "sha256:b6f325f0aa84ac3ac6779d8708264d366102226c5af7d69058cecffcff7a6d6c"},
+    {file = "interrogate-1.6.0-py3-none-any.whl", hash = "sha256:8e14b5cd63b2c6aca2dd490052d28b4f75d09d4c6880663b7f2dcfa0a3dd0fa4"},
+    {file = "interrogate-1.6.0.tar.gz", hash = "sha256:4e8c5de9becb55fbcc549aa3da0200a0b84ed08404562b95397cde7e77de638e"},
 ]
 
 [package.dependencies]
@@ -648,10 +648,10 @@ tabulate = "*"
 toml = "*"
 
 [package.extras]
-dev = ["cairosvg", "pre-commit", "pytest", "pytest-cov", "pytest-mock", "sphinx", "sphinx-autobuild", "wheel"]
+dev = ["cairosvg", "coverage[toml]", "pre-commit", "pytest", "pytest-cov", "pytest-mock", "sphinx", "sphinx-autobuild", "wheel"]
 docs = ["sphinx", "sphinx-autobuild"]
 png = ["cairosvg"]
-tests = ["pytest", "pytest-cov", "pytest-mock"]
+tests = ["coverage[toml]", "pytest", "pytest-cov", "pytest-mock"]
 
 [[package]]
 name = "jinja2"
