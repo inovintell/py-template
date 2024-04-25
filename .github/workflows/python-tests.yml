@@ -42,7 +42,7 @@ jobs:
             github.com:443
             pypi.org:443
       - name: Checkout repository
-        uses: actions/checkout@1d96c772d19495a3b5c517cd2bc0cb401ea0529f # v4.1.3
+        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4.1.4
       - name: Setup Dependencies
         uses: ./.github/actions/setup-poetry
         with:
@@ -70,7 +70,7 @@ jobs:
             github.com:443
             pypi.org:443
       - name: Check out repository code
-        uses: actions/checkout@1d96c772d19495a3b5c517cd2bc0cb401ea0529f # v4.1.3
+        uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4.1.4
       - name: Setup Dependencies
         uses: ./.github/actions/setup-poetry
       - name: Upload combined coverage
