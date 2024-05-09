@@ -35,4 +35,4 @@ jobs:
           languages: python
           setup-python-dependencies: false
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@7d9b7a187060ed04a98f18d26f24c03618f4e4eb # # tag=v2.1.21
+        uses: github/codeql-action/analyze@def4d2cd4e90baac0e70f826be49b93faf6505c5 # # tag=v2.1.21
