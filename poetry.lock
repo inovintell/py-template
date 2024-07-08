@@ -2084,19 +2084,19 @@ files = [
 
 [[package]]
 name = "tryceratops"
-version = "2.3.2"
+version = "2.3.3"
 description = "Prevent Exception Handling AntiPatterns"
 optional = false
-python-versions = ">=3.8.1,<4.0"
+python-versions = "<4.0,>=3.8.1"
 files = [
-    {file = "tryceratops-2.3.2-py3-none-any.whl", hash = "sha256:032fa3cf3659c9865a07b59057edf9efe9e38631e6b977fdae04064888cb62ba"},
-    {file = "tryceratops-2.3.2.tar.gz", hash = "sha256:e9d77811d8f7d886c4ceaeadccd2675c6f2d794344775463faf1cb969e49d865"},
+    {file = "tryceratops-2.3.3-py3-none-any.whl", hash = "sha256:c13f0596f1c099351416e3bbb5efae1b3b860d8d633e67b45fca189e312fa3c0"},
+    {file = "tryceratops-2.3.3.tar.gz", hash = "sha256:21fa82059fe272f9731db701b720d78eff8dcf84248e97581419a2992ee6a02e"},
 ]
 
 [package.dependencies]
 click = ">=7"
 rich = ">=10.14.0"
-toml = ">=0.10.2"
+tomli = ">=2.0.1,<3.0.0"
 typing-extensions = {version = ">=4.5.0", markers = "python_version < \"3.11\""}
 
 [[package]]
