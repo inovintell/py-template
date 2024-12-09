@@ -263,12 +263,12 @@ tests-cov = ["coverage", "coveralls", "pytest", "pytest-cov"]
 
 [[package]]
 name = "cohesion"
-version = "1.1.0"
+version = "1.2.0"
 description = "A tool for measuring Python class cohesion."
 optional = false
-python-versions = "*"
+python-versions = "<4.0.0,>=3.8.1"
 files = [
-    {file = "cohesion-1.1.0-py2.py3-none-any.whl", hash = "sha256:2ab1534d936428c61385e973c30cbd0381796401ad1083a5bf08562a9de9fee6"},
+    {file = "cohesion-1.2.0-py3-none-any.whl", hash = "sha256:d4a4c06a83022fcc56bf6af220247df9d6de7707a7a16442e98e7ad2ea152f79"},
 ]
 
 [[package]]
