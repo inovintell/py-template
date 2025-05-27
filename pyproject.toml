@@ -63,7 +63,7 @@ mkdocs-minify-plugin = { version = "^0.8.0" }
 interrogate = { version = "^1.5.0" }
 
 [tool.poetry.group.release.dependencies]
-python-semantic-release = { version = "^9.0.0" }
+python-semantic-release = { version = "^10.0.0" }
 
 [tool.poetry.group.hooks.dependencies]
 pre-commit = { version = "^4.0.0" }
