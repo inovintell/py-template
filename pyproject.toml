@@ -30,7 +30,7 @@ python=">=3.9, <4.0"
 
 [tool.poetry.group.test.dependencies]
 pytest = { version = "^8.0.0" }
-pytest-cov = { version = "^6.0.0" }
+pytest-cov = { version = "^7.0.0" }
 pytest-xdist = { version = "^3.0" }
 pytest-html = { version = "^4.0.0" }
 pytest-pretty-terminal = { version = "^1.1.0" }
